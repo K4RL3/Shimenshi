@@ -1,0 +1,62 @@
+{
+  "advancedEditorSelectedIdentifier" : "BehaviorsPluginID",
+  "openSceneRelativePaths" : [
+    "escena.usda"
+  ],
+  "recentIdentifiers" : {
+    "D2503B47-B17B-41CE-9735-7AD95A409B4E" : [
+
+    ]
+  },
+  "sceneCameraHistory" : {
+    "D2503B47-B17B-41CE-9735-7AD95A409B4E" : [
+      {
+        "date" : 797782604.814695,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          -5.972385e-08,
+          0.29468885,
+          0.31612718,
+          1
+        ]
+      },
+      {
+        "date" : 797782601.964235,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          -3.5762787e-07,
+          1.7646039,
+          1.8929772,
+          1
+        ]
+      }
+    ]
+  },
+  "sceneViewportBackgroundColors" : {
+
+  }
+}

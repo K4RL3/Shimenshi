@@ -1,0 +1,52 @@
+{
+  "D2503B47-B17B-41CE-9735-7AD95A409B4E" : {
+    "objectMetadataList" : [
+      [
+        "D2503B47-B17B-41CE-9735-7AD95A409B4E",
+        "Root",
+        "amin_1",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D2503B47-B17B-41CE-9735-7AD95A409B4E",
+        "Root",
+        "rotacion_infinita",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D2503B47-B17B-41CE-9735-7AD95A409B4E",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D2503B47-B17B-41CE-9735-7AD95A409B4E",
+        "Root",
+        "amin_1"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D2503B47-B17B-41CE-9735-7AD95A409B4E",
+        "Root",
+        "rotacion_infinita"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  }
+}
