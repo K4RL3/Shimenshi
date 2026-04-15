@@ -9,5 +9,9 @@ public let planetas = [
     "Planetario/escena",
     "Planetario/escena",
     "Planetario/escena",
+    "Planetario/escena",
+    "Planetario/escena",
+    "Planetario/escena",
+    "Planetario/escena",
     "Planetario/escena"
 ]

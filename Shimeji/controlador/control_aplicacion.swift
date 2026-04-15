@@ -18,6 +18,8 @@ public class ControladorAplicacion{
     
     public var estado: EstadosAplicacion = .iniciando
     
+    private var planetas_cargados: [Entity] = []
+    
     init(){
         Task.detached(priority: .high){
             await self.cargar_planetas()
@@ -39,10 +41,16 @@ public class ControladorAplicacion{
 
             
             raiz_escena.addChild(planeta)
+            planetas_cargados.append(planeta)
             
             contador_de_bucle_for += 1
         }
         
+    }
+    func alejar_planetas(legitud: Float){
+        for planeta_cargado in planetas_cargados {
+            planeta_cargado.position.z = legitud
+        }
     }
     
 }
