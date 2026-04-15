@@ -1,10 +1,12 @@
 {
   "pathsToIds" : {
+    "mundo virtual\/Sources\/mundo virtual\/mundo virtual.rkassets\/Planetario\/escena.usda" : "6F849637-89CA-4FB2-A32B-0E2F823B0ADA",
     "mundo virtual\/Sources\/mundo virtual\/mundo virtual.rkassets\/escena.usda" : "D2503B47-B17B-41CE-9735-7AD95A409B4E",
     "mundo%20virtual\/Sources\/mundo%20virtual\/mundo%20virtual.rkassets\/Scene.usda" : "6E39A629-63D2-4B24-ACC6-222352266B8D"
   },
   "projectID" : 8017525459002389984,
   "uuidToIntID" : {
+    "6F849637-89CA-4FB2-A32B-0E2F823B0ADA" : 3244239943621556567,
     "D2503B47-B17B-41CE-9735-7AD95A409B4E" : -5206522893238006329
   }
 }

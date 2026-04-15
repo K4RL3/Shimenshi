@@ -11,16 +11,14 @@ import mundo_virtual
 
 struct ContentView: View {
     @State var legitud: Float = 0
+    @Environment(ControladorAplicacion.self) var controlador
     var body: some View {
         ZStack{
             Rectangle()
                 .background(Color.yellow)
             
             RealityView{ raiz_de_escena in
-                if let modelo_cubo = try? await Entity(named: "escena", in: mundo_virtualBundle){
-                    modelo_cubo.position.z = Float(legitud)
-                    raiz_de_escena.add(modelo_cubo)
-                }
+                    raiz_de_escena.add(controlador.raiz_escena)
             }
         }
         Slider(value: $legitud)
@@ -29,4 +27,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(ControladorAplicacion())
 }
+
