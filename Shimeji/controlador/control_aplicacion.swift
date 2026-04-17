@@ -12,13 +12,15 @@ import mundo_virtual
 @Observable
 @MainActor
 public class ControladorAplicacion{
-    public var escenario: Entity? = nil
+    /// public var escenario: Entity? = nil
     
     public var raiz_escena: Entity = Entity()
     
     public var estado: EstadosAplicacion = .iniciando
     
     private var planetas_cargados: [Entity] = []
+    
+     var historial_comandos: [Comando] = []
     
     init(){
         Task.detached(priority: .high){
@@ -34,9 +36,9 @@ public class ControladorAplicacion{
         
         for planeta in planetas{
             guard let planeta = try? await Entity(named: planeta, in: MundoVirtual) else {
-                fatalError("NO SE HA PODIDO CARGAR EL PLANETA EN \(#function)")
+                fatalError("NO SE HA PODIDO CARGAR EL PLANETA EN \(#function) con planeta \(planeta)")
             }
-            planeta.position.y = Float(contador_de_bucle_for / 5) * 0.2
+            planeta.position.y = Float(contador_de_bucle_for / 8) * 0.2
             planeta.position.x = Float(contador_de_bucle_for % 3) * 0.2
 
             

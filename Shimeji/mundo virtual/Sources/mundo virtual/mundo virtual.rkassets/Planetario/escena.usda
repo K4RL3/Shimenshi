@@ -10,7 +10,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["amin_1", "rotacion_infinita"]
+    reorder nameChildren = ["amin_1", "rotacion_infinita", "saltito"]
     def "Sun" (
         active = true
         references = @Sun.usdz@
@@ -261,7 +261,10 @@ def Xform "Root"
 
     def RealityKitComponent "RCP_BehaviorsContainer"
     {
-        rel behaviors = </Root/OnAddedToScene>
+        rel behaviors = [
+            </Root/OnAddedToScene>,
+            </Root/OnNotification>,
+        ]
         uniform token info:id = "RCP.BehaviorsContainer"
     }
 
@@ -294,7 +297,7 @@ def Xform "Root"
         customData = {
             float3 rotationEulerHint = (0, 0.008726647, 0)
         }
-        prepend references = @Mercury.usdz@
+        references = @Mercury.usdz@
     )
     {
         quatf xformOp:orient = (0.99999046, 0, 0.004363309, 0)
@@ -303,13 +306,103 @@ def Xform "Root"
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 
+    def RealityKitTimeline "saltito"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Transform_To"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 1
+                uniform token info:id = "2E67C50F-77D8-4B04-AB08-804B22AF9639"
+                float3 position = (-0.11885208, 0.1, 0.20212172)
+                quatf rotation = (0.99999046, 0, 0.00436731, 0)
+                float3 scale = (0.2, 0.2, 0.2)
+                double startTime = 0
+                rel target = </Root/Mercury>
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "easeOut"
+                }
+            }
+
+            def RealityKitAction "Transform_To2"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 1
+                uniform token info:id = "2E67C50F-77D8-4B04-AB08-804B22AF9639"
+                float3 position = (-0.11885208, 0, 0.20212172)
+                quatf rotation = (0.99999046, 0, 0.00436731, 0)
+                float3 scale = (0.2, 0.2, 0.2)
+                double startTime = 1.0000000001000002
+                rel target = </Root/Mercury>
+                float2 ui:nodegraph:node:pos = (20, 20)
+                int ui:nodegraph:node:stackingOrder = 1
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "easeIn"
+                }
+            }
+
+            def RealityKitAction "Notification"
+            {
+                string actionKind = "notification"
+                uniform token info:id = "4EBADA74-9811-4FDE-9877-BA347CB2B580"
+                string notificationName = "Hola_tonoto"
+                double startTime = 2.0342835274790922
+                rel target = </Root>
+            }
+        }
+    }
+
+    def Preliminary_Behavior "OnNotification"
+    {
+        rel actions = </Root/OnNotification/Action>
+        uniform bool exclusive
+        rel triggers = </Root/OnNotification/Trigger>
+
+        def Preliminary_Trigger "Trigger"
+        {
+            rel affectedObjects = </Root>
+            string identifier = "salta_condenado"
+            token info:id = "Notification"
+        }
+
+        def Preliminary_Action "Action"
+        {
+            rel affectedObjects = </Root>
+            rel animationLibraryKey = </Root/saltito>
+            rel animationLibraryKeyOverrideKey = </Root/OnNotification/Trigger>
+            token info:id = "PlayTimeline"
+            int loops = 0
+            int performCount = 1
+            token type = "serial"
+        }
+    }
+
     def "Venus" (
         active = true
-        prepend references = @../Venus.usdz@
+        prepend references = @Venus.usdz@
     )
     {
         float3 xformOp:scale = (0.3, 0.3, 0.3)
-        float3 xformOp:translate = (-0.21494536, 2.9802322e-8, 0.27254933)
+        float3 xformOp:translate = (-0.2232838, 2.9802322e-8, 0.2609582)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }

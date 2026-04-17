@@ -15,3 +15,11 @@ public let planetas = [
     "Planetario/escena",
     "Planetario/escena"
 ]
+
+enum Notificaciones {
+    case salta_condenado
+}
+
+let Notificacion: [Notificaciones: String] = [
+    Notificaciones.salta_condenado: "salta_condenado"
+]
