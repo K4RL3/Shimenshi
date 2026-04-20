@@ -22,7 +22,11 @@ public class ControladorAplicacion{
     
      var historial_comandos: [Comando] = []
     
+    var maquinas_de_estados: [MaquinaEstadosGenerico] = [MaquinaEstadosAnimacion()]
+    
     init(){
+        estados_animacion.controlador_general = self as PorcesarComandos
+        
         Task.detached(priority: .high){
             await self.cargar_planetas()
         }

@@ -10,11 +10,12 @@ import RealityKit
 
 extension ControladorAplicacion {
     func activar_comportamiento(_ nombre: String){
-        raiz_escena.scene?.envirar_notificaciones(nombre)
+        estado_animacion.actualizar(nombre)
     }
     
     
     func escuchar_comportamiento(_ nombre: String){
-        print("nombre de finalizacon comportamiento \(nombre)")
+        ///print("nombre de finalizacon comportamiento \(nombre)")
+        estados_animacion.actualizar(nombre)
     }
 }
