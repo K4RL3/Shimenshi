@@ -5,33 +5,36 @@
 //  Created by alumno on 4/20/26.
 //
 
-class MaquinaEstadosAnimacion: MaquinaEstadosGenerico {
-    var controlador_general: (any PorcesarComandos)?
+
+class MaquinaEstadosAnimacion: MaquinaEstadosGenerica{
+    var controlador_general: (any ProcesarComandos)?
     
+
     var estados_disponibles: [String: Estado] = [
-        RepospAnimacion.nombre: RepospAnimacion(),
-        SaltoAnimccion.nombre: SaltoAnimccion(),
+        ReposoAnimacion.nombre: ReposoAnimacion(),
+        SaltoAnimacion.nombre: SaltoAnimacion(),
         PlanetasDesaparecidos.nombre: PlanetasDesaparecidos()
+        
     ]
     
     var estado_actual: Estado? = nil
     
     init(){
-        estado_actual = estados_disponibles[RepospAnimacion.nombre]
+        estado_actual = estados_disponibles[ReposoAnimacion.nombre]
         estado_actual?.contexto = self
     }
     
-    func realizarr_cambio_estado(nombre_del_estado_nuevo: String) {
+    func realizar_cambio_de_estado(a nombre_del_estado_nuevo: String) {
         guard var estado_nuevo = estados_disponibles[nombre_del_estado_nuevo] else {
-            fatalError("Parece que el estado \(nombre_del_estado_nuevo) no esta disponibleno esta disponible o registrado, por favor revisa.")
+            fatalError("Parece que el estado \(nombre_del_estado_nuevo) no esta disponible o registrado, por favor revisa.")
         }
+        
         estado_actual?.finalizar()
         
-        estado_nuevo.contexto = self as MaquinaEstadosAnimacion
+        estado_nuevo.contexto = self as MaquinaEstadosGenerica
         estado_nuevo.inicializar()
         
         estado_actual = estado_nuevo
-        
     }
     
     func actualizar(_ evento: String){
@@ -47,3 +50,4 @@ class MaquinaEstadosAnimacion: MaquinaEstadosGenerico {
     }
     
 }
+

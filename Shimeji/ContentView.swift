@@ -1,63 +1,62 @@
-//
-//  ContentView.swift
-//  Shimeji
-//
-//  Created by alumno on 4/13/26.
-//
 
 import SwiftUI
 import RealityKit
 import mundo_virtual
 
-struct ContentView: View {
-    @State var legitud: Float = 0
+struct ContentView: View{
+    @State var lejitud: Float = 0
     @Environment(ControladorAplicacion.self) var controlador
+    
     var body: some View {
         ZStack{
             Rectangle()
-            
-            switch controlador.estado{
-            case .iniciando:
-                Text ("Cargando aplicacion, porfavor espera")
-                    .foregroundStyle(Color.yellow)
+            VStack{
+                switch controlador.estado{
+                    case .inciando:
+                        Text("Cargando aplciacion, por favor espera")
+                            .foregroundStyle(Color.red)
+                        
+                    case .todo_cargado:
+                        RealityView{ raiz_de_escena in
+                            raiz_de_escena.add(controlador.raiz_escena)
+                        }
+                        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("RealityKit.NotificationTrigger"))){ notificacion in
+                            guard let notificacion = notificacion.userInfo?["RealityKit.NotificationTrigger.Identifier"] as? String else { return }
+                            
+                            controlador.escuchar_comportamiento(notificacion)
+                            
+                        }
+                }
                 
-            case .todo_cargado:
-                RealityView{ raiz_de_escena in
-                    raiz_de_escena.add(controlador.raiz_escena)
-                }
-                .onReceive(NotificationCenter.default.publisher(for: Notification.Name("RealityKit.NotificationTrigger"))){ notificacion in
-                    guard let notificacion = notificacion.userInfo?["RealityKit.NotificationTrigger.Identifier"] as? String else { return }
-                    
-
-                    controlador.escuchar_comportamiento(notificacion)
-                }
             }
         }
-        Slider(value: $legitud)
-            .onChange(of: legitud){
-                controlador.alejar_planetas(legitud: legitud)
+        
+        Slider(value: $lejitud, in: 0...5)
+            .onChange(of: lejitud) {
+                controlador.alejar_planetas(lejitud: lejitud)
             }
         
-        VStack{
+        HStack{
             Button{
-                controlador.alejar_planetas(legitud: legitud)
+                controlador.alejar_planetas(lejitud: lejitud)
             }
-            label:{
+            label: {
                 Text("Alejar planetas")
-                    .foregroundStyle(Color.orange)
+                    .foregroundStyle(Color.red)
             }
             
             Button{
-                controlador.realizar_comando("salta_condenado")
+                controlador.actualizar_estados("da_un_salto")
             }
-            label:{
+            label: {
                 Text("Da un saltito")
-                    .foregroundStyle(Color.orange)
+                    .foregroundStyle(Color.red)
             }
         }
+        
         HStack{
-            ForEach(controlador.historial_comandos){comando in
-                Text("Comando ejecutado \(comando.carga_util)")
+            ForEach(controlador.historial_comandos){ comando in
+                Text("Comando ejectudado \(comando.carga_util) ")
             }
         }
     }
@@ -67,4 +66,3 @@ struct ContentView: View {
     ContentView()
         .environment(ControladorAplicacion())
 }
-

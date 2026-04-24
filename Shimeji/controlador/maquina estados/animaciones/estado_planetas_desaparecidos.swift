@@ -6,7 +6,7 @@
 //
 
 class PlanetasDesaparecidos: Estado{
-    var contexto: (any MaquinaEstadosGenerico)?
+    var contexto: (any MaquinaEstadosGenerica)?
     static let nombre = "Planetas de23parecidos"
     
     func inicializar() {
@@ -27,3 +27,5 @@ class PlanetasDesaparecidos: Estado{
     
     
 }
+
+
