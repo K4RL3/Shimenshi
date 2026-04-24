@@ -7,5 +7,4 @@
 public enum EstadosAplicacion{
     case iniciando
     case todo_cargado
-    
 }

@@ -14,8 +14,11 @@ extension ControladorAplicacion: PorcesarComandos {
             )
             return true
             
-        case .activar_pantalla:
-            print("[\(#file):\(#function)]:no has activado esto \(tipo)")
+        default:
+            fatalError("[\(#file):\(#function)] NO has implentado esto campeon \(tipo)")
+            
+            return false
+
             
         }
         
@@ -31,9 +34,10 @@ extension ControladorAplicacion: PorcesarComandos {
             )
             return true
             
-        case .activar_pantalla:
-            print("[\(#file):\(#function)]:no has activado esto \(comanda)")
+        default:
+            fatalError("[\(#file):\(#function)] NO has implentado esto campeon \(comanda.tipo)")
             
+            return false
         }
         
         return false

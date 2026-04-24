@@ -25,12 +25,15 @@ public class ControladorAplicacion{
     var maquinas_de_estados: [MaquinaEstadosGenerico] = [MaquinaEstadosAnimacion()]
     
     init(){
-        estados_animacion.controlador_general = self as PorcesarComandos
-        
+        for indice in 0...maquinas_de_estados.count - 1{
+                    maquinas_de_estados[indice].controlador_general = self as PorcesarComandos
+                }
+
         Task.detached(priority: .high){
             await self.cargar_planetas()
         }
     }
+    
     func cargar_planetas() async {
         defer{
             estado = .todo_cargado
@@ -59,4 +62,9 @@ public class ControladorAplicacion{
         }
     }
     
+    func actualizar_estados(_ mensaje: String){
+           for maquina in maquinas_de_estados{
+               maquina.actualizar(mensaje)
+           }
+       }
 }

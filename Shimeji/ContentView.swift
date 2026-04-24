@@ -15,20 +15,21 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .background(Color.yellow)
             
             switch controlador.estado{
             case .iniciando:
                 Text ("Cargando aplicacion, porfavor espera")
                     .foregroundStyle(Color.yellow)
+                
             case .todo_cargado:
                 RealityView{ raiz_de_escena in
                     raiz_de_escena.add(controlador.raiz_escena)
                 }
-                .onReceive(NotificationCenter.default.publisher(for: Notification.Name("RealityKit.NotificationTrigger"))){ notification in
-                    guard let notification = notification.userInfo?["RealityKit.NotificationTrigger.Identifier"] as? String else { return }
+                .onReceive(NotificationCenter.default.publisher(for: Notification.Name("RealityKit.NotificationTrigger"))){ notificacion in
+                    guard let notificacion = notificacion.userInfo?["RealityKit.NotificationTrigger.Identifier"] as? String else { return }
                     
-                    controlador.escuchar_comportamiento(notification)
+
+                    controlador.escuchar_comportamiento(notificacion)
                 }
             }
         }
@@ -47,7 +48,7 @@ struct ContentView: View {
             }
             
             Button{
-                controlador.realizar_comando(tipo: .activar_animacion, carga_util: "salta_condenado")
+                controlador.realizar_comando("salta_condenado")
             }
             label:{
                 Text("Da un saltito")

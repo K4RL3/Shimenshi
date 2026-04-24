@@ -6,14 +6,23 @@
 //
 
 class SaltoAnimccion: Estado {
-    var contexto: any MaquinaEstadosGenerico
+    var contexto: (any MaquinaEstadosGenerico)? = nil
     
     static let nombre = "Salto"
     
     
-    func inicializar() {}
+    func inicializar() {
+        print("HOla desde Saltillo Hermosillo \(#file)")
+    }
     
-    func actualizar(_ evento: String) {}
+    func actualizar(_ evento: String) {
+        switch evento{
+                   default:
+                       print("HOla a todos desde el estado de Saltillo Guanajuatillo")
+                       contexto?.realizarr_cambio_estado(a: PlanetasDesaparecidos.nombre)
+        }
+
+    }
     
     func finalizar() {
         <#code#>
