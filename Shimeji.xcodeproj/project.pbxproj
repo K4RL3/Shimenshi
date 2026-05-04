@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB7454ED2FA8D8BD00441BFF /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = FB7454EC2FA8D8BD00441BFF /* FirebaseCore */; };
+		FB7454F72FA8DDDA00441BFF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FB7454F62FA8DDDA00441BFF /* FirebaseFirestore */; };
 		FBF3CF982F8D2D0200BDDA6E /* mundo virtual in Frameworks */ = {isa = PBXBuildFile; productRef = FBF3CF972F8D2D0200BDDA6E /* mundo virtual */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB7454ED2FA8D8BD00441BFF /* FirebaseCore in Frameworks */,
 				FBF3CF982F8D2D0200BDDA6E /* mundo virtual in Frameworks */,
+				FB7454F72FA8DDDA00441BFF /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +96,8 @@
 			name = Shimeji;
 			packageProductDependencies = (
 				FBF3CF972F8D2D0200BDDA6E /* mundo virtual */,
+				FB7454EC2FA8D8BD00441BFF /* FirebaseCore */,
+				FB7454F62FA8DDDA00441BFF /* FirebaseFirestore */,
 			);
 			productName = Shimeji;
 			productReference = FBF3CF802F8D248400BDDA6E /* Shimeji.app */;
@@ -123,6 +129,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				FBF3CF932F8D2C5200BDDA6E /* XCLocalSwiftPackageReference "Shimeji/mundo virtual" */,
+				FB7454EB2FA8D7CA00441BFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FBF3CF812F8D248400BDDA6E /* Products */;
@@ -376,7 +383,28 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		FB7454EB2FA8D7CA00441BFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.12.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		FB7454EC2FA8D8BD00441BFF /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB7454EB2FA8D7CA00441BFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		FB7454F62FA8DDDA00441BFF /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB7454EB2FA8D7CA00441BFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		FBF3CF972F8D2D0200BDDA6E /* mundo virtual */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "mundo virtual";

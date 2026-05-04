@@ -6,10 +6,16 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct ShimejiApp: App {
     @State var controlador_general = ControladorAplicacion()
+    
+    init (){
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
             SeguimientoImagenes()
