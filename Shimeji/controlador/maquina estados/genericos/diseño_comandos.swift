@@ -13,12 +13,12 @@ protocol ProcesarComandos{
     func realizar_comando(_ comanda: Comando) -> Bool
 }
 
-enum Comandos{
+enum Comandos: String, Codable{
     case activar_animacion
     case activar_pantalla
 }
 
-public struct Comando: Identifiable{
+public struct Comando: Codable, Identifiable{
     public let id = UUID()
     
     let tipo: Comandos
