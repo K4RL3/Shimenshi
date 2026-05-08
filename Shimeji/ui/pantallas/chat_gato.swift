@@ -18,6 +18,8 @@ struct ChatView: View {
                 mensaje in
                 Text("el mensaje es : \(mensaje.texto) de parte de \(mensaje.remitente)")
             }
+            //Text("el naco y estupido dijo: \(sesion_agente.peticion?.respuesta)")
+            
             
             TextField("cuentame que enviar", text: $msj_a_enviar)
             
