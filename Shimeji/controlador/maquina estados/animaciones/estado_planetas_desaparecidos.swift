@@ -6,6 +6,11 @@
 //
 
 class PlanetasDesaparecidos: Estado{
+    var descripcion: String = ""
+    
+    var posibles_estados: [String] = []
+    
+
     var contexto: (any MaquinaEstadosGenerica)?
     static let nombre = "Planetas de23parecidos"
     

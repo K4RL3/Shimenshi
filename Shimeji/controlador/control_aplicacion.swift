@@ -24,6 +24,7 @@ public class ControladorAplicacion{
     var historial_comandos: [Comando] = []
     
     var maquinas_de_estados: [MaquinaEstadosGenerica] = [MaquinaEstadosAnimacion()]
+    var entidad_ia: ServicioAgente = ServicioAgente()
     
     init(){
         for indice in 0...maquinas_de_estados.count - 1{

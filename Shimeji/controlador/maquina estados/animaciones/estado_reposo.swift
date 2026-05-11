@@ -6,26 +6,38 @@
 //
 
 class ReposoAnimacion: Estado{
-    var contexto: (any MaquinaEstadosGenerica)? = nil
+    var descripcion: String = ""
     
     static let nombre: String = "Reposo"
-
+    var posibles_estados: [String] = [SaltoAnimacion.nombre]
     
     func inicializar() { }
     
-    func actualizar(_ evento: String) {
-        print("\(#function) recibiendo informacion del tipo evento con datos \(evento)")
+    func actualizar(_ tipo_interaccion: TiposDeInteraccion, _ interaccion: BotonesDisponibles) {
         
-        switch evento{
-            case "da_un_salto":
-                contexto?.enviar_peticion(Comando(tipo: .activar_animacion, carga_util: "da_un_salto"))
-                contexto?.realizar_cambio_de_estado(a: SaltoAnimacion.nombre)
+        // print("\(#function):\(ReposoAnimacion.nombre) recibiendo informacion del tipo evento con datos \(evento)")
+        
+        switch tipo_interaccion{
+            case .entidad:
+                contexto?.enviar_peticion(Comando(tipo: .activar_animacion, carga_util: "vuelta_rapida"))
+                
+            case .boton:
+                switch interaccion{
+                    case .realizar_accion:
+                        contexto?.enviar_peticion(Comando(tipo: .activar_animacion, carga_util: "da_un_salto"))
+                        contexto?.realizar_cambio_de_estado(a: SaltoAnimacion.nombre)
+                    default:
+                        print("Comanod no especifciado")
+                }
                 
             default:
                 print("Comanod no especifciado")
-
         }
     }
+    
+    var contexto: (any MaquinaEstadosGenerica)? = nil
+    
+    func inicializar() { }
     
     func finalizar() { }
     

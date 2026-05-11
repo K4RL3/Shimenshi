@@ -7,20 +7,27 @@
 
 
 class SaltoAnimacion: Estado{
+    var descripcion: String = "Estamos dadno un salto"
+    
+    var posibles_estados: [String] = []
+    
+  
     var contexto: (any MaquinaEstadosGenerica)? = nil
     
-    static let nombre = "Salto"
+    static var nombre = "Salto"
 
     
     func inicializar() {
         print("HOla desde Saltillo Hermosillo \(#file)")
     }
     
-    func actualizar(_ evento: String) {
-        switch evento{
+    func actualizar(_ tipo_interaccion: TiposDeInteraccion, _ interaccion: BotonesDisponibles) {
+        switch tipo_interaccion{
+            case .entidad:
+                contexto?.enviar_peticion(Comando(tipo: .activar_animacion, carga_util: "salta_condenado"))
+            
             default:
-                print("HOla a todos desde el estado de Saltillo Guanajuatillo")
-                contexto?.realizar_cambio_de_estado(a: PlanetasDesaparecidos.nombre)
+                print("Error: No tenemos instrucciones para ese comando")
         }
     }
     
@@ -28,6 +35,5 @@ class SaltoAnimacion: Estado{
     
     func reaccion(estimulo: String) {
     }
-    
     
 }

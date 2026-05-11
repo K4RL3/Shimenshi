@@ -7,6 +7,14 @@
 
 
 class MaquinaEstadosAnimacion: MaquinaEstadosGenerica{
+    var posibles_estados: [String] = []
+    
+    static var nombre: String = "MaquinaDeEstados"
+    
+    var descripcion: String = "Hola este es la maquina de estados"
+    
+    var contexto: (any MaquinaEstadosGenerica)?
+    
     var controlador_general: (any ProcesarComandos)?
     
 
@@ -14,7 +22,6 @@ class MaquinaEstadosAnimacion: MaquinaEstadosGenerica{
         ReposoAnimacion.nombre: ReposoAnimacion(),
         SaltoAnimacion.nombre: SaltoAnimacion(),
         PlanetasDesaparecidos.nombre: PlanetasDesaparecidos()
-        
     ]
     
     var estado_actual: Estado? = nil
@@ -24,21 +31,10 @@ class MaquinaEstadosAnimacion: MaquinaEstadosGenerica{
         estado_actual?.contexto = self
     }
     
-    func realizar_cambio_de_estado(a nombre_del_estado_nuevo: String) {
-        guard var estado_nuevo = estados_disponibles[nombre_del_estado_nuevo] else {
-            fatalError("Parece que el estado \(nombre_del_estado_nuevo) no esta disponible o registrado, por favor revisa.")
-        }
-        
-        estado_actual?.finalizar()
-        
-        estado_nuevo.contexto = self as MaquinaEstadosGenerica
-        estado_nuevo.inicializar()
-        
-        estado_actual = estado_nuevo
-    }
+
     
-    func actualizar(_ evento: String){
-        estado_actual?.actualizar(evento)
+    func actualizar(_ tipo_interaccion: TiposDeInteraccion, _ interaccion: BotonesDisponibles) {
+        estado_actual?.actualizar(tipo_interaccion, interaccion)
     }
     
     func enviar_peticion(_ comando: Comando) -> Bool {
@@ -49,5 +45,26 @@ class MaquinaEstadosAnimacion: MaquinaEstadosGenerica{
         return respuesta
     }
     
+    func inicializar() { }
+    
+    func finalizar() { }
+    
+    func reaccion(estimulo: String) { }
+    
+    func generar_descripcion() -> String {
+        return ""
+    }
+    
+    func generar_contexto_textual() -> Contexto {
+        let contexto = Contexto(
+            historia: "La histoira de este perosnaje",
+            personalidad: "La personaldiad de esta agente",
+            acciones_disponibles: [Comandos.activar_pantalla.rawValue, Comandos.activar_animacion.rawValue],
+            estados_disponibles: estado_actual!.posibles_estados,
+            estado_emocional: estado_actual!.descripcion
+        )
+        
+        return contexto
+    }
 }
 

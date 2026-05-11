@@ -10,10 +10,14 @@ import Combine
 
 @Observable
 class ServicioAgente{
-    //var peticion: Peticion? = nil
-    var peticion: [Peticion] = []
+    var peticion: Peticion? = nil
+    //var peticion: [Peticion] = []
     
     private var bd = Firestore.firestore()
+    
+    func crear_peticion(contexto){
+        contexto
+    }
     
     func obtener_actualizaciones(){
         bd.collection("mensajes").order(by: "timestamp").addSnapshotListener { snapshot, error in

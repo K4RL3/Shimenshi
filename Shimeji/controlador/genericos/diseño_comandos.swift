@@ -18,10 +18,14 @@ enum Comandos: String, Codable{
     case activar_pantalla
 }
 
-public struct Comando: Codable, Identifiable{
-    public let id = UUID()
+public struct Comando: Identifiable, Codable{
+    public var id = UUID()
     
     let tipo: Comandos
     let carga_util: String
+}
+
+protocol CargaUtil {
+    
 }
 
