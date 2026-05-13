@@ -18,7 +18,7 @@ class PlanetasDesaparecidos: Estado{
         
     }
     
-    func actualizar(_ evento: String) {
+    func actualizar(_ tipo_interaccion: TiposDeInteraccion, _ interaccion: BotonesDisponibles ) {
         print("HOla desde planetas desaparecidos")
     }
     

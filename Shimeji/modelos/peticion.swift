@@ -18,7 +18,6 @@ struct Peticion: Codable, Identifiable{
     var estado: EstadoPeticion
     var contexto: Contexto
     var mensaje: String
-    var animacion: String?
     var comando_a_ejecutar: Comando?
     var respuesta: String?
 }

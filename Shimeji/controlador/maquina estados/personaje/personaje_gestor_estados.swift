@@ -4,8 +4,7 @@
 //
 //  Created by alumno on 5/11/26.c
 
-class PersonajeGestor1: MaquinaEstadosGenerica{
-    
+class PersonajeGestorEstados: MaquinaEstadosGenerica{
     var controlador_general: (any ProcesarComandos)?
     
     var contexto: (any MaquinaEstadosGenerica)?
@@ -16,23 +15,32 @@ class PersonajeGestor1: MaquinaEstadosGenerica{
     
     static var nombre: String = "GEstor de estados basico"
     
-    var estados_disponibles: [String: Estado] = [:]
+    var estados_disponibles: [String: Estado] = [
+        PersonajeNeutro.nombre: PersonajeNeutro(),
+        PersonajeFeliz.nombre: PersonajeFeliz()
+    ]
     
     var estado_actual: Estado? = nil
+    var nombre_estado_actual: String?
     
     init(){
-        estado_actual = estados_disponibles[ReposoAnimacion.nombre]
+        realizar_cambio_de_estado(a: PersonajeNeutro.nombre)
+        
         estado_actual?.contexto = self
     }
     
     func generar_contexto_textual() -> Contexto {
+        print("Traza")
+        
         let contexto_actual = Contexto(
             historia: "Aqui colocamos la historia de nuestro perosnaje",
             personalidad: "Aqui colocamos la personalidad de nuestro agente ",
             estados_disponibles: estado_actual!.posibles_estados,
-            estado_actual: estado_actual.self!.nombre,
+            estado_actual: nombre_estado_actual!,
             descrpcion: estado_actual!.descripcion
         )
+        
+        return contexto_actual
     }
 
     func inicializar() { }
@@ -49,6 +57,8 @@ class PersonajeGestor1: MaquinaEstadosGenerica{
         guard var estado_nuevo = estados_disponibles[nombre_del_estado_nuevo] else {
             fatalError("Parece que el estado \(nombre_del_estado_nuevo) no esta disponible o registrado, por favor revisa.")
         }
+        
+        nombre_estado_actual = nombre_del_estado_nuevo
         
         estado_actual?.finalizar()
         

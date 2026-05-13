@@ -8,32 +8,37 @@
 import FirebaseFirestore
 import Combine
 
+
 @Observable
 class ServicioChat{
-    var mesnajes:[Mensaje] = []
-    private var bd = Firestore.firestore()
+    var mensajes: [Mensaje] = []
     
-    func obtener_msj(){
-        bd.collection("mensajes").order(by: "timestamp").addSnapshotListener { snapshot, error in
-            guard let documento = snapshot?.documents else {return}
-            self.mesnajes = documento.compactMap{elemento in
-                try? elemento.data(as: Mensaje.self)
-            }
+    private var base_de_datos = Firestore.firestore()
+    
+    func obtener_mensajes(){
+        base_de_datos.collection("mensajes")
+            .order(by: "timestamp")
+            .addSnapshotListener { snapshot, error in
+                guard let documento = snapshot?.documents else { return }
+                self.mensajes = documento.compactMap{ elemento in
+                    try? elemento.data(as: Mensaje.self)
+                }
         }
     }
     
-    func enviar_msj(texto: String){
-        let mesnaje = Mensaje(
+    func enviar_mensaje(texto: String){
+        let mensaje = Mensaje(
             id: UUID().uuidString,
             texto: texto,
             remitente: "yo",
             timestamp: Date()
         )
-        do {
-            _ = try bd.collection("mensajes").addDocument(from: mesnaje)
+        
+        do{
+            _ = try base_de_datos.collection("mensajes").addDocument(from: mensaje)
         }
         catch {
-            print("lol no le supiste \(error)")
+            print("Hey, tiene un error \(error)")
         }
     }
 }

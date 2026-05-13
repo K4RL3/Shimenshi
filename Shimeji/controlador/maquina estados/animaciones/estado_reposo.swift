@@ -9,9 +9,8 @@ class ReposoAnimacion: Estado{
     var descripcion: String = ""
     
     static let nombre: String = "Reposo"
-    var posibles_estados: [String] = [SaltoAnimacion.nombre]
     
-    func inicializar() { }
+    var posibles_estados: [String] = [SaltoAnimacion.nombre]
     
     func actualizar(_ tipo_interaccion: TiposDeInteraccion, _ interaccion: BotonesDisponibles) {
         

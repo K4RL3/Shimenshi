@@ -5,8 +5,9 @@
 //  Created by alumno on 4/20/26.
 //
 
-
 class MaquinaEstadosAnimacion: MaquinaEstadosGenerica{
+    func realizar_cambio_de_estado(a nombre_del_estado_nuevo: String) { }
+    
     var posibles_estados: [String] = []
     
     static var nombre: String = "MaquinaDeEstados"
@@ -37,13 +38,7 @@ class MaquinaEstadosAnimacion: MaquinaEstadosGenerica{
         estado_actual?.actualizar(tipo_interaccion, interaccion)
     }
     
-    func enviar_peticion(_ comando: Comando) -> Bool {
-        guard let respuesta = controlador_general?.realizar_comando(comando) else {
-            return false
-        }
-        
-        return respuesta
-    }
+
     
     func inicializar() { }
     
@@ -59,12 +54,11 @@ class MaquinaEstadosAnimacion: MaquinaEstadosGenerica{
         let contexto = Contexto(
             historia: "La histoira de este perosnaje",
             personalidad: "La personaldiad de esta agente",
-            acciones_disponibles: [Comandos.activar_pantalla.rawValue, Comandos.activar_animacion.rawValue],
             estados_disponibles: estado_actual!.posibles_estados,
-            estado_emocional: estado_actual!.descripcion
+            estado_actual: "",
+            descrpcion: "",
         )
         
         return contexto
     }
 }
-

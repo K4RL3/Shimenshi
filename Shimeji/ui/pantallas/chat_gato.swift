@@ -8,34 +8,31 @@
 import SwiftUI
 
 struct ChatView: View {
-    @State var sesion_chat = ServicioChat()
-    @State var sesion_agente = ServicioAgente()
-    @State var msj_a_enviar: String = ""
+    @Environment(ControladorAplicacion.self) var controlador
+    @State var entidad_ia = ServicioAgente()
+    
+    static let nombre = PantallasDisponibles.ataque
+    
+    @State var mensaje_a_enviar: String = ""
     
     var body: some View {
-        VStack {
-            ForEach(sesion_chat.mesnajes){
-                mensaje in
-                Text("el mensaje es : \(mensaje.texto) de parte de \(mensaje.remitente)")
-            }
-            //Text("el naco y estupido dijo: \(sesion_agente.peticion?.respuesta)")
+        VStack{
+            Text("La respuesta del agente fue: \(entidad_ia.peticion?.respuesta)")
             
-            
-            TextField("cuentame que enviar", text: $msj_a_enviar)
-            
+            TextField("Cuentame que enviar", text: $mensaje_a_enviar)
+              
             Button{
-                sesion_agente.enviar_peticion()
-                
+                entidad_ia.crear_peticion(contexto: controlador.generar_contexto(),  mensaje_del_usuario: mensaje_a_enviar)
             } label: {
-                Text("Puslsame para publicar")
+                Text("Pulsame para enviar cosas")
             }
+            
         }
-        .onAppear {
-            sesion_chat.obtener_msj()
-        }
+        .background(Color.red)
     }
 }
 
 #Preview {
     ChatView()
+        .environment(ControladorAplicacion())
 }
