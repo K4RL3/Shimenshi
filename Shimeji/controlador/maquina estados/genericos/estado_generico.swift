@@ -18,5 +18,7 @@ protocol Estado{
     func finalizar() -> Void
     
     func reaccion(estimulo: String) -> Void
+    
+    func prueba(estimulo: String) -> Void
 }
 
