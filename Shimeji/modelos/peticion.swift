@@ -13,6 +13,7 @@ enum EstadoPeticion: String, Codable{
     case resultado
 }
 
+
 struct Peticion: Codable, Identifiable{
     var id: String
     var estado: EstadoPeticion

@@ -3,23 +3,18 @@ import Foundation
 /// Bundle for the mundo virtual project
 public let MundoVirtual = Bundle.module
 
-public let escenario_planeta = "Planetario/escena"
+public let escenario_animacion = "capi_animaciones/cappi_animado"
 
-public let planetas = [
-    "Planetario/escena",
-    "Planetario/escena",
-    "Planetario/escena",
-    "Planetario/escena",
-    "Planetario/escena",
-    "Planetario/escena",
-    "Planetario/escena",
-    "Planetario/escena"
+public let capibara_prueba = [
+    "capi_animaciones/cappi_animado",
+    "capi_animaciones/cappi_animado",
+    "capi_animaciones/cappi_animado"
 ]
 
 enum Notificaciones {
-    case salta_condenado
+    case ildie
 }
 
 let Notificacion: [Notificaciones: String] = [
-    Notificaciones.salta_condenado: "salta_condenado"
+    Notificaciones.ildie: "ildie"
 ]

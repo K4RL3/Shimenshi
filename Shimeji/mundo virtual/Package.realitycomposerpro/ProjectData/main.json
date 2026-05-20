@@ -1,13 +1,17 @@
 {
   "pathsToIds" : {
     "mundo virtual\/Sources\/mundo virtual\/mundo virtual.rkassets\/Planetario\/escena.usda" : "6F849637-89CA-4FB2-A32B-0E2F823B0ADA",
+    "mundo virtual\/Sources\/mundo virtual\/mundo virtual.rkassets\/capi animaciones\/cappi animado.usda" : "69BB49FB-7749-47A9-9E0D-945BC4C78E82",
+    "mundo virtual\/Sources\/mundo virtual\/mundo virtual.rkassets\/capi_animaciones\/cappi_animado.usda" : "7E7CA3C3-978D-4CA8-B69F-B507886A8E2C",
     "mundo virtual\/Sources\/mundo virtual\/mundo virtual.rkassets\/escena.usda" : "D2503B47-B17B-41CE-9735-7AD95A409B4E",
     "mundo%20virtual\/Sources\/mundo%20virtual\/mundo%20virtual.rkassets\/Scene.usda" : "6E39A629-63D2-4B24-ACC6-222352266B8D",
     "mundo%20virtual\/Sources\/mundo%20virtual\/mundo%20virtual.rkassets\/capi%20animaciones\/Untitled%20Scene.usda" : "EFED66BE-C928-4981-83A1-3960CC6F1FEC"
   },
   "projectID" : 8017525459002389984,
   "uuidToIntID" : {
+    "69BB49FB-7749-47A9-9E0D-945BC4C78E82" : -8803559001227760718,
     "6F849637-89CA-4FB2-A32B-0E2F823B0ADA" : 3244239943621556567,
+    "7E7CA3C3-978D-4CA8-B69F-B507886A8E2C" : -6592036807413492400,
     "D2503B47-B17B-41CE-9735-7AD95A409B4E" : -5206522893238006329,
     "EFED66BE-C928-4981-83A1-3960CC6F1FEC" : -8307992413153097725
   }

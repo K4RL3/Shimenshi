@@ -34,7 +34,7 @@ class PersonajeGestorEstados: MaquinaEstadosGenerica{
         
         let contexto_actual = Contexto(
             historia: "Aqui colocamos la historia de nuestro perosnaje",
-            personalidad: "Aqui colocamos la personalidad de nuestro agente ",
+            personalidad: "chill de cojones",
             estados_disponibles: estado_actual!.posibles_estados,
             estado_actual: nombre_estado_actual!,
             descrpcion: estado_actual!.descripcion

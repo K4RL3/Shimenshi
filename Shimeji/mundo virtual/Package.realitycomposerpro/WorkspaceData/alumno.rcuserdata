@@ -1,8 +1,7 @@
 {
   "advancedEditorSelectedIdentifier" : "BehaviorsPluginID",
   "openSceneRelativePaths" : [
-    "Planetario\/escena.usda",
-    "capi animaciones\/Untitled Scene.usda"
+    "capi_animaciones\/cappi_animado.usda"
   ],
   "recentIdentifiers" : {
     "6F849637-89CA-4FB2-A32B-0E2F823B0ADA" : [
@@ -17,6 +16,50 @@
   },
   "sceneCameraHistory" : {
     "6F849637-89CA-4FB2-A32B-0E2F823B0ADA" : [
+      {
+        "date" : 800979384.228404,
+        "title" : "Untitled",
+        "transform" : [
+          -0.2646696,
+          3.0614142e-08,
+          -0.96433914,
+          0,
+          -0.33010244,
+          0.93958724,
+          0.09059919,
+          0,
+          0.90608054,
+          0.34230983,
+          -0.24868052,
+          0,
+          3.980672,
+          0.7041148,
+          0.9725987,
+          1
+        ]
+      },
+      {
+        "date" : 800979329.972953,
+        "title" : "Untitled",
+        "transform" : [
+          0.7028709,
+          2.1284787e-08,
+          0.7113175,
+          0,
+          0.09320355,
+          0.9913785,
+          -0.09209705,
+          0,
+          -0.70518446,
+          0.13102983,
+          0.6968114,
+          0,
+          0.7322646,
+          -0.86347413,
+          2.5334451,
+          1
+        ]
+      },
       {
         "date" : 800977475.554855,
         "title" : "Untitled",
@@ -190,50 +233,6 @@
           -0.054924607,
           4.142054,
           3.1058037,
-          1
-        ]
-      },
-      {
-        "date" : 800977367.659992,
-        "title" : "Untitled",
-        "transform" : [
-          0.9997067,
-          -3.6251435e-09,
-          0.024216883,
-          0,
-          0.0005478671,
-          0.99974394,
-          -0.02262151,
-          0,
-          -0.024210308,
-          0.022628285,
-          0.9994508,
-          0,
-          0.21281578,
-          0.8511383,
-          1.6237526,
-          1
-        ]
-      },
-      {
-        "date" : 800977351.831599,
-        "title" : "Untitled",
-        "transform" : [
-          0.48309642,
-          -2.640722e-08,
-          -0.87556714,
-          0,
-          0.048763014,
-          0.9984479,
-          0.026905237,
-          0,
-          0.87420845,
-          -0.055693,
-          0.4823463,
-          0,
-          1.3349738,
-          0.56067646,
-          0.9030043,
           1
         ]
       }
@@ -554,5 +553,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Planetario\/escena.usda"
+  "selectedSceneRelativePath" : "capi_animaciones\/cappi_animado.usda"
 }
