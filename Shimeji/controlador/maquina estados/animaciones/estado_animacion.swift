@@ -5,14 +5,14 @@
 //  Created by alumno on 4/20/26.
 //
 
-class MaquinaEstadosAnimacion: MaquinaEstadosGenerica{
+class MaquinaEstadosCapi: MaquinaEstadosGenerica{
     func realizar_cambio_de_estado(a nombre_del_estado_nuevo: String) { }
     
     var posibles_estados: [String] = []
     
-    static var nombre: String = "MaquinaDeEstados"
+    static var nombre: String = "MaquinaCapi"
     
-    var descripcion: String = "Hola este es la maquina de estados"
+    var descripcion: String = "Controlador de reacciones de Capi"
     
     var contexto: (any MaquinaEstadosGenerica)?
     
@@ -52,10 +52,10 @@ class MaquinaEstadosAnimacion: MaquinaEstadosGenerica{
     
     func generar_contexto_textual() -> Contexto {
         let contexto = Contexto(
-            historia: "La histoira de este perosnaje",
-            personalidad: "La personaldiad de esta agente",
+            historia: "Es el personaje principal que guía al usuario a lo largo de la experiencia. Su personalidad destaca por ser sumamente relajada, confiable y leal. Actúa como el soporte estratégico de la historia, manteniendo siempre el control y transmitiendo calma al usuario durante la búsqueda de las piezas. Su lenguaje es profesional pero accesible, adaptado al entorno universitario de IADA, lo que le permite conectar de manera efectiva con los estudiantes de Diseño Digital y mantenerlos motivados durante todo el recorrido interactivo.",
+            personalidad: "",
             estados_disponibles: estado_actual!.posibles_estados,
-            estado_actual: "",
+            estado_actual:  ["Dar pista", "Festejar", "Lamentarse"],,
             descrpcion: "",
         )
         
