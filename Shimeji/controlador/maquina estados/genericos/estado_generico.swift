@@ -19,6 +19,5 @@ protocol Estado{
     
     func reaccion(estimulo: String) -> Void
     
-    func prueba(estimulo: String) -> Void
 }
 

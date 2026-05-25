@@ -42,8 +42,9 @@ class ServicioAgente{
             personalidad: "naco y estupido",
             acciones_disponibles: ["insultar","hablar fresa", "ser clasista"],
             estados_disponibles: ["neutral2", "agradable con gringos"],
-            estado_emocional: "feliz por existir"
+            estado_emocional: "feliz por existir",
+            estado_actual: "neutral2",
+            descripcion: ""
         )
-        
     }
 }

@@ -13,4 +13,6 @@ struct Contexto: Codable {
     var acciones_disponibles: [String]
     var estados_disponibles: [String]
     var estado_emocional: String
+    var estado_actual: String
+    var descripcion: String
 }
