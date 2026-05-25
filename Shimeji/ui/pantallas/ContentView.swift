@@ -58,12 +58,7 @@ struct Inicio: View{
                 
             }
         }
-        
-        Slider(value: $lejitud, in: 0...5)
-            .onChange(of: lejitud) {
-                controlador.alejar_planetas(lejitud: lejitud)
-            }
-        
+
         HStack{
             
             Button{
