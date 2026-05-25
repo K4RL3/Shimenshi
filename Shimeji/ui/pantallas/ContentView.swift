@@ -13,7 +13,7 @@ struct Inicio: View{
             Rectangle()
             VStack{
                 switch controlador.estado{
-                    case .inciando:
+                    case .iniciando:
                         Text("Cargando aplciacion, por favor espera")
                             .foregroundStyle(Color.red)
                         
@@ -42,7 +42,7 @@ struct Inicio: View{
                             )
                             
                             .task {
-                                await controlador.servicio_ar()
+                                await controlador.servicio()
                             }
                             .onReceive(NotificationCenter.default.publisher(for: Notification.Name("RealityKit.NotificationTrigger"))){ notificacion in
                                 guard let notificacion = notificacion.userInfo?["RealityKit.NotificationTrigger.Identifier"] as? String else { return }

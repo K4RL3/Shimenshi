@@ -8,16 +8,25 @@
 import FirebaseFirestore
 import Combine
 
+
 @Observable
 class ServicioAgente{
-    var peticion: Peticion? = nil
-    //var peticion: [Peticion] = []
+    //var peticion: Peticion? = nil
+  var peticion: [Peticion] = []
     
-    private var bd = Firestore.firestore()
+    private var base_de_datos = Firestore.firestore()
+    
+    func obtener_actualizaciones_de_la_peticion(id: String){
+        base_de_datos.collection("peticiones/\(id)")
+            .addSnapshotListener { snapshot, error in
+                guard let documento = snapshot?.documents else { return }
+                self.peticion = documento.compactMap{ elemento in try? elemento.data(as: Peticion.self)
+                }
+        }
+    }
     
     func crear_peticion(contexto: Contexto, mensaje_del_usuario: String){
-        print("hiiii \(#function)")
-        
+
         let peticion = Peticion(
             id: UUID().uuidString,
             estado: .creacion,
@@ -27,8 +36,12 @@ class ServicioAgente{
             respuesta: nil,
         )
         do {
-            var resultado_enviar_peticion = try bd.collection("peticiones").addDocument(from: peticion)
-            print("el resultado de enviar la peticion \(resultado_enviar_peticion)")
+            var resultado_enviar_peticion = try base_de_datos.collection("peticiones").addDocument(from: peticion)
+            
+            resultado_enviar_peticion.addSnapshotListener{ snapshot, error in
+                guard let snapshot = try? snapshot?.data(as: Peticion.self) else { return }
+                self.peticion = snapshot
+            }
         }
         catch {
             print("lol no le supiste \(error)")

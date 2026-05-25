@@ -14,8 +14,11 @@ import FirebaseFirestore
 @MainActor
 public class ControladorAplicacion {
     public var raiz_escena: Entity = Entity()
-    public var estado: EstadosAplicacion = .inciando
+    public var estado: EstadosAplicacion = .iniciando
     public var pantallas_emergentes: [PantallasDisponibles] = []
+    
+    
+//    Cosas borradas?
     
     // --- RASTREO DEL PROGRESO Y DIÁLOGOS ---
     public var piezasEncontradas: Int = 0
@@ -25,8 +28,11 @@ public class ControladorAplicacion {
 
     var entidades_ancla: [AnchorEntity] = []
     var maquinas_de_estados: [MaquinaEstadosGenerica] = [MaquinaEstadosCapi()]
+    var entidad_ia: ServicioAgente
+    
     
     init() {
+        entidad_ia = ServicioAgente()
         for indice in 0...maquinas_de_estados.count - 1 {
             maquinas_de_estados[indice].controlador_general = self as ProcesarComandos
         }
@@ -65,4 +71,10 @@ public class ControladorAplicacion {
     func generar_contexto() -> Contexto {
         return maquinas_de_estados[0].generar_contexto_textual()
     }
+    
+    func enviar_mensaje_ia(mensaje: String){
+        let personaje_actual = maquinas_de_estados[0]
+        entidad_ia.crear_peticion(contexto: personaje_actual.generar_contexto(), mensaje_del_usuario: mensaje)
+    }
+    
 }

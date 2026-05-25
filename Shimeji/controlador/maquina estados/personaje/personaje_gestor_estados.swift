@@ -24,8 +24,7 @@ class PersonajeGestorEstados: MaquinaEstadosGenerica{
     var nombre_estado_actual: String?
     
     init(){
-        realizar_cambio_de_estado(a: PersonajeNeutro.nombre)
-        
+        estado_actual = estados_disponibles[PersonajeNeutro.nombre]
         estado_actual?.contexto = self
     }
     
@@ -36,8 +35,8 @@ class PersonajeGestorEstados: MaquinaEstadosGenerica{
             historia: "Aqui colocamos la historia de nuestro perosnaje",
             personalidad: "chill de cojones",
             estados_disponibles: estado_actual!.posibles_estados,
-            estado_actual: nombre_estado_actual!,
-            descrpcion: estado_actual!.descripcion
+            estado_actual: "",
+            descripcion: ""
         )
         
         return contexto_actual

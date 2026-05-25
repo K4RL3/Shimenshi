@@ -25,7 +25,7 @@ public struct Comando: Identifiable, Codable{
     let carga_util: String
 }
 
-protocol CargaUtil {
-    
-}
-
+//protocol CargaUtil {
+//    
+//}
+//

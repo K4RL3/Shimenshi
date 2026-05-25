@@ -6,10 +6,7 @@
 //
 
 class MaquinaEstadosCapi: MaquinaEstadosGenerica {
-    func prueba(estimulo: String) {
-        <#code#>
-    }
-    
+
     func realizar_cambio_de_estado(a nombre_del_estado_nuevo: String) { }
     
     var posibles_estados: [String] = []
@@ -44,9 +41,10 @@ class MaquinaEstadosCapi: MaquinaEstadosGenerica {
         return Contexto(
             historia: "Capi está en el campus de la UACJ buscando las piezas de su amigo Ajolote.",
             personalidad: "Amable, tierno y motivador.",
-            acciones_disponibles: ["Dar pista", "Festejar", "Lamentarse"],
+//            acciones_disponibles: ["Dar pista", "Festejar", "Lamentarse"],
             estados_disponibles: Array(estados_disponibles.keys),
-            estado_emocional: "Determinado"
+            estado_actual: "",
+            descripcion: ""
         )
     }
 }
