@@ -1,0 +1,160 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.60.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["animacion_caminar_a_centro_saludo", "caminando_infinito", "idle_infinito", "hablar_infinito"]
+    def "cappi_animado" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, -1.5707963, 0)
+        }
+        references = @../capi modelos/cappi animado.usda@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, 0, -0.70710677, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (2, 0, 9.313226e-8)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def RealityKitTimeline "caminando_infinito"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Timeline"
+            {
+                string actionKind = "timeline"
+                int blendLayer = 500
+                double duration = 0.9583333134651184
+                uniform token info:id = "D3528886-6F1E-4F47-AA2B-B2E8F8B88CA8"
+                double loopCount = 0
+                double startTime = 0
+                rel timeline = </Root/cappi_animado/caminando>
+            }
+        }
+    }
+
+    def RealityKitTimeline "idle_infinito"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Timeline"
+            {
+                string actionKind = "timeline"
+                int blendLayer = 500
+                double duration = 2.5833332538604736
+                uniform token info:id = "C60DAA51-F471-41C4-B307-1BE8DD63109B"
+                double loopCount = 0
+                double startTime = 0
+                rel timeline = </Root/cappi_animado/ildie>
+            }
+        }
+    }
+
+    def RealityKitTimeline "hablar_infinito"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Timeline"
+            {
+                string actionKind = "timeline"
+                int blendLayer = 500
+                double duration = 0.375
+                uniform token info:id = "57D7270E-6D14-4AAE-B30F-7006153C093F"
+                double loopCount = 0
+                double startTime = 0.0017397355601948504
+                rel timeline = </Root/cappi_animado/hablando>
+            }
+        }
+    }
+
+    def RealityKitTimeline "animacion_caminar_a_centro_saludo"
+    {
+        reorder nameChildren = ["Track", "Track2"]
+        def RealityKitTrack "Track"
+        {
+            reorder nameChildren = ["Transform_To", "Transform_By"]
+            def RealityKitAction "Transform_By"
+            {
+                string actionKind = "moveBy"
+                int blendLayer = 300
+                double duration = 1
+                uniform token info:id = "CF335ADF-4012-4980-97EB-B2D0E3346257"
+                quatf rotation = (0.70710677, 0, 0.70710677, 0)
+                double startTime = 5.005175601121413
+                rel target = </Root/cappi_animado>
+
+                def RealityKitStruct "timingFunction"
+                {
+                }
+            }
+
+            def RealityKitAction "Transform_To"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 5
+                uniform token info:id = "04EE8A4F-CB28-43F7-BD1D-2DECC7622C76"
+                float3 position = (-0.0061352253, 0, 9.313226e-8)
+                quatf rotation = (0.70710677, 0, -0.7071067, 0)
+                float3 scale = (0.99999994, 0.99999994, 0.99999994)
+                double startTime = 0.0017397355601948504
+                rel target = </Root/cappi_animado>
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "easeInOut"
+                }
+            }
+
+            def RealityKitAction "Notification"
+            {
+                string actionKind = "notification"
+                uniform token info:id = "ABCFF7E3-446D-43A7-BCBF-BFDBE0B1BC9E"
+                string notificationName = "caminar_a_centro_saludo"
+                double startTime = 6.009719484032615
+                rel target = </Root>
+            }
+        }
+
+        def RealityKitTrack "Track2"
+        {
+            def RealityKitAction "Play_Timeline"
+            {
+                string actionKind = "timeline"
+                int blendLayer = 500
+                double duration = 0.9583333134651184
+                uniform token info:id = "A3551D36-A9E9-4B37-B668-456BA901EBDE"
+                double loopCount = 5.215
+                double startTime = 0
+                rel timeline = </Root/cappi_animado/caminando>
+            }
+
+            def RealityKitAction "caminando"
+            {
+                string actionKind = "timeline"
+                int blendLayer = 500
+                double duration = 0.9583333134651184
+                uniform token info:id = "E0A3591D-7A01-47A5-B50D-434EFA2C9B18"
+                double loopCount = 1.05
+                double startTime = 5
+                rel timeline = </Root/cappi_animado/caminando>
+            }
+        }
+    }
+}
+

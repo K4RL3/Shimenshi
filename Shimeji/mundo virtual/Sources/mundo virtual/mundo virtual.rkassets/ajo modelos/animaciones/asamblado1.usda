@@ -1,0 +1,92 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.60.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Ajolote002_brazo", "yipiee", "Ajolote002_brazo_1", "ildie"]
+    def RealityKitTimeline "yipiee"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "Ajolote_celebrar"
+                int blendLayer = 500
+                double duration = 0.9583333134651184
+                uniform token info:id = "610132DC-400B-4F54-89BB-868D87ACC034"
+                double loopCount = 0
+                bool separateAnimatedValue = 1
+                double startTime = 0
+                rel target = </Root/Ajolote002_brazo>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def "Ajolote002_brazo_1" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        references = @../asamblado-modelos/Ajolote002_brazo.usdz@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (0.1, 0.1, 0.1)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "AnimationLibrary"
+        {
+            uniform token info:id = "RealityKit.AnimationLibrary"
+
+            def RealityKitAnimationFile "Ajolote_celebrar"
+            {
+                uniform asset file = @Ajolote_celebrar.usdz@
+                uniform string name = "Ajolote_celebrar"
+            }
+
+            def RealityKitAnimationFile "Ajolote_idle"
+            {
+                uniform asset file = @Ajolote_idle.usdz@
+                uniform bool looping = 1
+                uniform string name = "Ajolote_idle"
+            }
+        }
+    }
+
+    def RealityKitTimeline "ildie"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "Ajolote_idle"
+                int blendLayer = 500
+                double duration = 1.4583333730697632
+                uniform token info:id = "B5C9B8D5-EE3F-438D-A53E-25C49E3E65B3"
+                double loopCount = 0
+                bool separateAnimatedValue = 1
+                double startTime = 0
+                rel target = </Root/Ajolote002_brazo_1>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+}
+

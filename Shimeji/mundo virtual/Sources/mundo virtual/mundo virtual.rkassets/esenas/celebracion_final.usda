@@ -1,0 +1,103 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.60.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["ParticleEmitter", "asamblado4", "RCP_BehaviorsContainer", "OnNotification", "cappi_animado", "ambos_celebrando"]
+    def "cappi_animado" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, -0.39209414, 0)
+        }
+        references = @../capi modelos/cappi animado.usda@
+    )
+    {
+        quatf xformOp:orient = (0.98084426, 0, -0.19479364, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0.5058121, 0, -0.0012964457)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "asamblado4" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, 0.37939304, 0)
+        }
+        references = @../ajo modelos/animaciones/asamblado4.usda@
+    )
+    {
+        quatf xformOp:orient = (0.9820615, 0, 0.18856087, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-0.29308152, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def RealityKitComponent "RCP_BehaviorsContainer"
+    {
+        rel behaviors = </Root/OnNotification>
+        uniform token info:id = "RCP.BehaviorsContainer"
+    }
+
+    def Preliminary_Behavior "OnNotification"
+    {
+        rel actions = </Root/OnNotification/Action>
+        uniform bool exclusive
+        rel triggers = </Root/OnNotification/Trigger>
+
+        def Preliminary_Trigger "Trigger"
+        {
+            rel affectedObjects = </Root>
+            string identifier = "celebracion_final_ajo"
+            token info:id = "Notification"
+        }
+
+        def Preliminary_Action "Action"
+        {
+            rel affectedObjects = </Root>
+            rel animationLibraryKey = </Root/ambos_celebrando>
+            rel animationLibraryKeyOverrideKey = </Root/OnNotification/Trigger>
+            token info:id = "PlayTimeline"
+            int loops = 0
+            int performCount = 1
+            token type = "serial"
+        }
+    }
+
+    def RealityKitTimeline "ambos_celebrando"
+    {
+        reorder nameChildren = ["Track", "Track2"]
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Timeline"
+            {
+                string actionKind = "timeline"
+                int blendLayer = 500
+                double duration = inf
+                uniform token info:id = "95B75DA8-2041-4F85-8050-02ADE9794123"
+                double startTime = 0
+                rel timeline = </Root/asamblado4/yipiee>
+            }
+        }
+
+        def RealityKitTrack "Track2"
+        {
+            def RealityKitAction "Play_Timeline"
+            {
+                string actionKind = "timeline"
+                int blendLayer = 500
+                double duration = inf
+                uniform token info:id = "A2CF7AE9-2C67-49A3-B9CD-4A4F3EAF0A6D"
+                double startTime = 0
+                rel timeline = </Root/cappi_animado/yippie>
+            }
+        }
+    }
+}
+

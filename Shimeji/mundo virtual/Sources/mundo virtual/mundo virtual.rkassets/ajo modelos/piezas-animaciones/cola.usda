@@ -1,0 +1,100 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.60.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Timeline", "Timeline2"]
+    def Sphere "Sphere" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+    )
+    {
+        reorder nameChildren = ["DefaultMaterial", "Ajolote_cola"]
+        rel material:binding = None (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double radius = 0
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "DefaultMaterial"
+        {
+            token outputs:mtlx:surface
+            token outputs:realitykit:vertex
+            prepend token outputs:surface.connect = </Root/Sphere/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+            def Shader "DefaultSurfaceShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                float inputs:roughness = 0.75
+                token outputs:surface
+            }
+        }
+
+        def "Ajolote_cola" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (0, 7.4505793e-9, -6.661338e-16)
+            }
+            references = @../piezas-modelos/Ajolote_cola.usdz@
+        )
+        {
+            quatf xformOp:orient = (1, 1.2407707e-24, 3.7252896e-9, -3.330669e-16)
+            float3 xformOp:scale = (0.09999998, 0.09999997, 0.09999998)
+            float3 xformOp:translate = (-8.5681684e-8, -0.13548656, -9.0415314e-10)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def RealityKitTimeline "Timeline"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Spin"
+            {
+                string actionKind = "spin"
+                int blendLayer = 400
+                double duration = 1
+                uniform token info:id = "7091D9A0-F52D-4E77-B3FA-6A95F908C3E0"
+                float3 localAxis = (0, 0, 1)
+                double startTime = 0
+                rel target = </Root/Sphere>
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "linear"
+                }
+            }
+        }
+    }
+
+    def RealityKitTimeline "Timeline2"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Timeline"
+            {
+                string actionKind = "timeline"
+                int blendLayer = 500
+                double duration = 1
+                uniform token info:id = "9FAFDEF6-D0F6-4A92-8B10-1E196E0E8F89"
+                double loopCount = 0
+                double startTime = 0
+                rel timeline = </Root/Timeline>
+            }
+        }
+    }
+}
+

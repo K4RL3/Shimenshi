@@ -1,0 +1,91 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.60.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Timeline", "Timeline2"]
+    def Sphere "Sphere" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        reorder nameChildren = ["Ajolote_pata", "DefaultMaterial"]
+        rel material:binding = None (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double radius = 0
+
+        def Material "DefaultMaterial"
+        {
+            prepend token outputs:surface.connect = </Root/Sphere/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+            def Shader "DefaultSurfaceShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                float inputs:roughness = 0.75
+                token outputs:surface
+            }
+        }
+
+        def "Ajolote_pata" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707964, 0, 0)
+            }
+            references = @../piezas-modelos/Ajolote_pata.usdz@
+        )
+        {
+            quatf xformOp:orient = (0.7071067, -0.70710677, 0, 0)
+            float3 xformOp:scale = (0.09999999, 0.09999999, 0.09999999)
+            float3 xformOp:translate = (-0.043376476, 2.9802322e-8, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def RealityKitTimeline "Timeline"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Spin"
+            {
+                string actionKind = "spin"
+                int blendLayer = 400
+                double duration = 1
+                uniform token info:id = "01BA9A4F-9DA1-4621-B3D3-BD8A40F9A303"
+                double startTime = 0
+                rel target = </Root/Sphere>
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "linear"
+                }
+            }
+        }
+    }
+
+    def RealityKitTimeline "Timeline2"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Timeline"
+            {
+                string actionKind = "timeline"
+                int blendLayer = 500
+                double duration = 1
+                uniform token info:id = "9D6A4A16-D42F-4A77-B29E-7DA5E5010868"
+                double loopCount = 0
+                double startTime = 0
+                rel timeline = </Root/Timeline>
+            }
+        }
+    }
+}
+

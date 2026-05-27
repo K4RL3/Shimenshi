@@ -7,31 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66A635722FC68BA000B704D9 /* mundo virtual in Frameworks */ = {isa = PBXBuildFile; productRef = 66A635712FC68BA000B704D9 /* mundo virtual */; };
 		FB7454ED2FA8D8BD00441BFF /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = FB7454EC2FA8D8BD00441BFF /* FirebaseCore */; };
 		FB7454F72FA8DDDA00441BFF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FB7454F62FA8DDDA00441BFF /* FirebaseFirestore */; };
-		FBF3CF982F8D2D0200BDDA6E /* mundo virtual in Frameworks */ = {isa = PBXBuildFile; productRef = FBF3CF972F8D2D0200BDDA6E /* mundo virtual */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FBF3CF802F8D248400BDDA6E /* Shimeji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shimeji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		FBF3CF922F8D2BEC00BDDA6E /* Exceptions for "Shimeji" folder in "Shimeji" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"mundo virtual",
-			);
-			target = FBF3CF7F2F8D248400BDDA6E /* Shimeji */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FBF3CF822F8D248400BDDA6E /* Shimeji */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				FBF3CF922F8D2BEC00BDDA6E /* Exceptions for "Shimeji" folder in "Shimeji" target */,
-			);
 			path = Shimeji;
 			sourceTree = "<group>";
 		};
@@ -43,8 +30,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB7454ED2FA8D8BD00441BFF /* FirebaseCore in Frameworks */,
-				FBF3CF982F8D2D0200BDDA6E /* mundo virtual in Frameworks */,
 				FB7454F72FA8DDDA00441BFF /* FirebaseFirestore in Frameworks */,
+				66A635722FC68BA000B704D9 /* mundo virtual in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,9 +82,9 @@
 			);
 			name = Shimeji;
 			packageProductDependencies = (
-				FBF3CF972F8D2D0200BDDA6E /* mundo virtual */,
 				FB7454EC2FA8D8BD00441BFF /* FirebaseCore */,
 				FB7454F62FA8DDDA00441BFF /* FirebaseFirestore */,
+				66A635712FC68BA000B704D9 /* mundo virtual */,
 			);
 			productName = Shimeji;
 			productReference = FBF3CF802F8D248400BDDA6E /* Shimeji.app */;
@@ -128,8 +115,8 @@
 			mainGroup = FBF3CF772F8D248400BDDA6E;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				FBF3CF932F8D2C5200BDDA6E /* XCLocalSwiftPackageReference "Shimeji/mundo virtual" */,
 				FB7454EB2FA8D7CA00441BFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				66A635702FC68B8400B704D9 /* XCLocalSwiftPackageReference "Shimeji/mundo virtual" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FBF3CF812F8D248400BDDA6E /* Products */;
@@ -290,7 +277,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 64BW24HKKF;
+				DEVELOPMENT_TEAM = 6TDYN77H54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.adventure-games";
@@ -328,7 +315,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 64BW24HKKF;
+				DEVELOPMENT_TEAM = 6TDYN77H54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.adventure-games";
@@ -383,7 +370,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		FBF3CF932F8D2C5200BDDA6E /* XCLocalSwiftPackageReference "Shimeji/mundo virtual" */ = {
+		66A635702FC68B8400B704D9 /* XCLocalSwiftPackageReference "Shimeji/mundo virtual" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "Shimeji/mundo virtual";
 		};
@@ -401,6 +388,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		66A635712FC68BA000B704D9 /* mundo virtual */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "mundo virtual";
+		};
 		FB7454EC2FA8D8BD00441BFF /* FirebaseCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FB7454EB2FA8D7CA00441BFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -410,10 +401,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FB7454EB2FA8D7CA00441BFF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
-		};
-		FBF3CF972F8D2D0200BDDA6E /* mundo virtual */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = "mundo virtual";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -27,7 +27,7 @@ let pistas = [
         cuerpo: PistaInteractuable(
             informacion: "Texto de prueba para la pantalla interactuable",
             interacciones: [
-                Boton(
+                BotonPista(
                     mensaje: "Puchopicame para ir a la pista 1",
                     conecta_con_pista: "pista_1")
             ]

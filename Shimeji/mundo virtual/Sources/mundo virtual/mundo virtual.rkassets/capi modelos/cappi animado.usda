@@ -1,0 +1,224 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.60.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["ildie", "caminando", "yippie", "mapa", "hablando"]
+    def RealityKitTimeline "ildie"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "default subtree animation"
+                int blendLayer = 500
+                double duration = 2.5833332538604736
+                uniform token info:id = "051A520E-F1EA-46A7-8DB3-2A0337095E55"
+                double loopCount = 1
+                bool separateAnimatedValue = 1
+                double startTime = 0
+                rel target = </Root/Carpincho_mapa>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitTimeline "caminando"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "Carpincho_caminar"
+                int blendLayer = 500
+                double duration = 0.9583333134651184
+                uniform token info:id = "00C71F8F-CE1A-4AF3-8496-1753062B4A72"
+                double loopCount = 1
+                bool separateAnimatedValue = 1
+                double startTime = 0
+                rel target = </Root/Carpincho_mapa>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitTimeline "yippie"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "Carpincho_celebrar"
+                int blendLayer = 500
+                double duration = 0.9583333134651184
+                uniform token info:id = "EC74ADFC-0218-473A-817D-EB437C8FE1F3"
+                double loopCount = 0
+                bool separateAnimatedValue = 1
+                double startTime = 0
+                rel target = </Root/Carpincho_mapa>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitTimeline "mapa"
+    {
+        reorder nameChildren = ["Track", "Track2"]
+        def RealityKitTrack "Track"
+        {
+            reorder nameChildren = ["Animation", "Animation2"]
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "default subtree animation"
+                int blendLayer = 500
+                double duration = 2.5833332538604736
+                uniform token info:id = "E189151D-FE0A-4704-BCA9-23EA5D812882"
+                double loopCount = 1
+                bool separateAnimatedValue = 1
+                double startTime = 0
+                rel target = </Root/Carpincho_mapa>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+
+        def RealityKitTrack "Track2"
+        {
+            def RealityKitAction "Animation2"
+            {
+                string actionKind = "animation"
+                string animation = "mapa_abierto"
+                int blendLayer = 500
+                double duration = -7.947285984855057e-8
+                uniform token info:id = "ABD3F614-7797-4CC5-BE44-A90EDCF5B19D"
+                double loopCount = 0
+                bool separateAnimatedValue = 1
+                double startTime = 2.587025111996662
+                rel target = </Root/Carpincho_mapa>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def "Carpincho_mapa" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        references = @Carpincho_mapa.usdz@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (0.1, 0.1, 0.1)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "AnimationLibrary"
+        {
+            token info:id = "RealityKit.AnimationLibrary"
+
+            def RealityKitAnimationFile "Carpincho_mapa"
+            {
+                uniform asset file = @Carpincho_mapa.usdz@
+                uniform string name = "Carpincho_mapa"
+            }
+
+            def RealityKitAnimationFile "Carpincho_caminar"
+            {
+                uniform asset file = @Carpincho_caminar.usdz@
+                uniform bool looping = 1
+                uniform string name = "Carpincho_caminar"
+            }
+
+            def RealityKitAnimationFile "Carpincho_celebrar"
+            {
+                uniform asset file = @Carpincho_celebrar.usdz@
+                uniform bool looping = 1
+                uniform string name = "Carpincho_celebrar"
+            }
+
+            def RealityKitAnimationFile "Carpincho_hablar"
+            {
+                uniform asset file = @Carpincho_hablar.usdz@
+                uniform bool looping = 1
+                uniform string name = "Carpincho_hablar"
+            }
+
+            def RealityKitAnimationFile "Carpincho_parado"
+            {
+                uniform asset file = @Carpincho_parado.usdz@
+                uniform bool looping = 1
+                uniform string name = "Carpincho_parado"
+            }
+
+            def RealityKitAnimationFile "cappi_animado"
+            {
+                uniform asset file = @cappi animado.usda@
+                uniform bool looping = 1
+                uniform string name = "cappi animado"
+            }
+
+            def RealityKitAnimationFile "default_subtree_animation"
+            {
+                uniform bool looping = 1
+                uniform string name = "default subtree animation"
+            }
+
+            def RealityKitClipDefinition "Clip_Carpincho_mapa"
+            {
+                uniform string[] clipNames = ["Clip", "mapa_abierto"]
+                uniform string sourceAnimationName = "Carpincho_mapa"
+                uniform double[] startTimes = [0, 2.5833333333333335]
+            }
+        }
+    }
+
+    def RealityKitTimeline "hablando"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "Carpincho_hablar"
+                int blendLayer = 500
+                double duration = 0.375
+                uniform token info:id = "13ED8CB7-FBD7-4C1A-901C-A22691AD362C"
+                double loopCount = 1
+                bool separateAnimatedValue = 1
+                double startTime = 0
+                rel target = </Root/Carpincho_mapa>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+}
+
