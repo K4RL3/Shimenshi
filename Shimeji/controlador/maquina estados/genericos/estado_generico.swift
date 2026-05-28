@@ -13,7 +13,7 @@ protocol Estado{
     
     func inicializar() -> Void
     
-    func actualizar(_ ipo_interaccion: TiposDeInteraccion, _ interaccion: BotonesDisponibles) -> Void
+    func actualizar(_ tipo_interaccion: TiposDeInteraccion, _ interaccion: BotonesDisponibles) -> Void
     
     func finalizar() -> Void
     

@@ -6,22 +6,20 @@
 
 class PersonajeGestorEstados: MaquinaEstadosGenerica{
     var controlador_general: (any ProcesarComandos)?
-    
     var contexto: (any MaquinaEstadosGenerica)?
-    
-    var descripcion: String = "Esta no la vmaos a tomar en cuenta"
-    
+    var descripcion: String = "Esta no la vamas a tomar en cuenta"
     var posibles_estados: [String] = []
+    static var nombre: String = "Gestor de estados basico"
+    var estado_actual: Estado? = nil
+    var nombre_estado_actual: String?
     
-    static var nombre: String = "GEstor de estados basico"
     
     var estados_disponibles: [String: Estado] = [
         PersonajeNeutro.nombre: PersonajeNeutro(),
         PersonajeFeliz.nombre: PersonajeFeliz()
     ]
     
-    var estado_actual: Estado? = nil
-    var nombre_estado_actual: String?
+
     
     init(){
         realizar_cambio_de_estado(a: PersonajeNeutro.nombre)

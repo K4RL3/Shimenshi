@@ -1,18 +1,18 @@
 //
-//  personaje_neutro.swift
+//  personaje_feliz.swift
 //  Shimeji
 //
 //  Created by alumno on 5/11/26.
 //
 
-class PersonajeNeutro: Estado{
+class PersonajeTriste: Estado{
     var contexto: (any MaquinaEstadosGenerica)? = nil
     
-    var descripcion: String = "NUestro queridisimo personaje se comporta de forma neutra como cualquier otra persona sobre la faz de la tierra"
+    var descripcion: String = "Está algo triste, busca consuelo y ayuda."
     
-    var posibles_estados: [String] = [PersonajeNeutro.nombre]
+    var posibles_estados: [String] = [PersonajeTriste.nombre]
     
-    static var nombre: String = "Personaje en neutral"
+    static var nombre: String = "Personaje en tristeza."
     
     func inicializar() { }
     
