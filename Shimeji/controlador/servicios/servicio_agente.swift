@@ -13,7 +13,7 @@ class ServicioAgente{
     var peticion: Peticion? = nil
     //var peticion: [Peticion] = []
     
-    private var bd = Firestore.firestore()
+    private var base_de_datos = Firestore.firestore()
     
     func crear_peticion(contexto: Contexto, mensaje_del_usuario: String){
         print("hiiii \(#function)")
@@ -27,24 +27,11 @@ class ServicioAgente{
             respuesta: nil,
         )
         do {
-            var resultado_enviar_peticion = try bd.collection("peticiones").addDocument(from: peticion)
+            var resultado_enviar_peticion = try base_de_datos.collection("peticiones").addDocument(from: peticion)
             print("el resultado de enviar la peticion \(resultado_enviar_peticion)")
         }
         catch {
             print("lol no le supiste \(error)")
         }
-    }
-
-    
-    func enviar_peticion(){
-        let contexto = Contexto(
-            historia: "eres un chilango tipico, tus compas te desconosen y los gringos te confunden, por blanco",
-            personalidad: "naco y estupido",
-            acciones_disponibles: ["insultar","hablar fresa", "ser clasista"],
-            estados_disponibles: ["neutral2", "agradable con gringos"],
-            estado_emocional: "feliz por existir",
-            estado_actual: "neutral2",
-            descripcion: ""
-        )
     }
 }

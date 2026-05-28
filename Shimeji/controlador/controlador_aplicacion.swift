@@ -28,7 +28,7 @@ public class ControladorAplicacion{
 
     var historial_comandos: [Comando] = []
     
-    var maquinas_de_estados: [MaquinaEstadosGenerica] = [PersonajeGestorEstados()]
+    var maquinas_de_estados: [MaquinaEstadosGenerica] = [CappiGestorEstados(), AjoGestorEstados()]
     
     private var servicio = ARReferenceImage.referenceImages(inGroupNamed: "imagenes", bundle: nil)
     

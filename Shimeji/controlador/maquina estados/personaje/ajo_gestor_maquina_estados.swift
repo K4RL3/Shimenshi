@@ -1,16 +1,16 @@
 //
-//  cappi_gestor_maquina_estados.swift
+//  ajo_gestor_maquina_estados.swift
 //  Shimeji
 //
 //  Created by Jose de la luz Olivares Gandara on 28/05/26.
 //
 
-class CappiGestorEstados: MaquinaEstadosGenerica{
+class AjoGestorEstados: MaquinaEstadosGenerica{
     
     var contexto: (any MaquinaEstadosGenerica)?
     var descripcion: String = "No tomar en cuenta descripción."
     var posibles_estados: [String] = []
-    static var nombre: String = "Gestor de Estados Cappi."
+    static var nombre: String = "Gestor de Estados Ajo."
     var controlador_general: (any ProcesarComandos)?
     var estados_disponibles: [String : Estado] = [
         PersonajeNeutro.nombre: PersonajeNeutro(),
@@ -22,16 +22,15 @@ class CappiGestorEstados: MaquinaEstadosGenerica{
     init(){
         estado_actual = estados_disponibles[PersonajeNeutro.nombre]
         estado_actual?.contexto = self
-
-        nombre_estado_actual = PersonajeNeutro.nombre
     }
+    
     
     func generar_contexto_textual() -> Contexto {
         print("Traza")
         
         let contexto = Contexto(
-            historia: "Es un tierno peluche viajero que llegó a Ciudad Juárez listo para la aventura, equipado con su pequeña mochilita y un mapa de la  Destaca por ser el planificador del viaje: un explorador organizado, calmado y de gran corazón que se encargó de trazar la ruta perfecta para conocer los lugares más icónicos de la ciudad y de IADA. Tras el inesperado accidente donde su compañero Ajolote quedó desarmado, el Capibara no se paniquea; toma el control de la situación, se ajusta la mochila y usa su mapa como la guía estratégica definitiva para coordinar al usuario en la búsqueda de las piezas, decidido a rescatar a su amigo y demostrar que nada puede arruinar su gran viaje norteño.",
-            personalidad:  "Es el personaje principal que guía al usuario a lo largo de la experiencia. Su personalidad destaca por ser sumamente relajada, confiable y leal. Actúa como el soporte estratégico de la historia, manteniendo siempre el control y transmitiendo calma al usuario durante la búsqueda de las piezas. Su lenguaje es profesional pero accesible, adaptado al entorno universitario de IADA, lo que le permite conectar de manera efectiva con los estudiantes de Diseño Digital y mantenerlos motivados durante todo el recorrido interactivo.",
+            historia: "Es un juguete armable que llegó muy emocionado a Ciudad Juárez en plan de turista para conocer la frontera y tomarse fotos en la famosa X. Lamentablemente, mientras cruzaba una avenida transitada de la ciudad, fue atropellado, lo que provocó que sus piezas magnéticas salieran volando y se dispersaran por diferentes puntos turísticos y calles de Juárez. Ahora está varado en la ciudad y necesita la ayuda de la sabiduría del Capibara y el apoyo del usuario para recolectar todas sus partes, armarse de nuevo y poder continuar con sus vacaciones norteñas.",
+            personalidad:  "Es un juguete sumamente curioso, aventurero y con un espíritu viajero inquebrantable. A pesar del accidente, no pierde su actitud de turista emocionado; es distraído pero muy carismático, y ve el haber sido atropellado como una anecdota extrema de sus vacaciones en la frontera. Le encanta aprender modismos locales, quiere probar todos los burritos de la ciudad y siempre mantiene una actitud positiva y agradecida con el usuario cada vez que encuentra una de sus piezas para poder seguir turisteando.",
             acciones_disponibles: [],
             estados_disponibles: estado_actual!.posibles_estados,
             estado_actual: nombre_estado_actual!,

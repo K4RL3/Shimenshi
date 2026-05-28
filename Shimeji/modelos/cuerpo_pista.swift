@@ -8,6 +8,7 @@
 enum TiposDePista{
     case informacion
     case interactiva
+    case acertijo
 }
 
 protocol CuerpoPista{
@@ -29,4 +30,9 @@ struct PistaInteractuable: CuerpoPista{
     var interacciones: [BotonPista]
 }
 
-
+struct PistaAcertijo: CuerpoPista{
+    var tipo: TiposDePista = .acertijo
+    var informacion: String
+    var pregunta: String
+    var respuestaCorrecta: String
+}

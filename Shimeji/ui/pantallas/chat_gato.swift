@@ -11,7 +11,7 @@ struct ChatView: View {
     @Environment(ControladorAplicacion.self) var controlador
     @State var entidad_ia = ServicioAgente()
     
-    static let nombre = PantallasDisponibles.ataque
+    static let nombre = PantallasDisponibles.platicar
     
     @State var mensaje_a_enviar: String = ""
     
