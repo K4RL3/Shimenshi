@@ -26,19 +26,40 @@ class AjoGestorEstados: MaquinaEstadosGenerica{
     }
     
     
-    func generar_contexto_textual() -> Contexto {
-        print("Traza")
-        
-        let contexto = Contexto(
-            historia: "Ajo es un juguete armable que llegó muy emocionado a Ciudad Juárez en plan de turista para conocer la frontera y tomarse fotos en la famosa X. Lamentablemente, mientras cruzaba una avenida transitada de la ciudad, fue atropellado, lo que provocó que sus piezas magnéticas salieran volando y se dispersaran por diferentes puntos turísticos y calles de Juárez. Ahora está varado en la ciudad y necesita la ayuda de la sabiduría del Capibara y el apoyo del usuario para recolectar todas sus partes, armarse de nuevo y poder continuar con sus vacaciones norteñas.",
-            personalidad:  "Es un juguete sumamente curioso, aventurero y con un espíritu viajero inquebrantable. A pesar del accidente, no pierde su actitud de turista emocionado; es distraído pero muy carismático, y ve el haber sido atropellado como una anecdota extrema de sus vacaciones en la frontera. Le encanta aprender modismos locales, quiere probar todos los burritos de la ciudad y siempre mantiene una actitud positiva y agradecida con el usuario cada vez que encuentra una de sus piezas para poder seguir turisteando.",
-            acciones_disponibles: [],
-            estados_disponibles: estado_actual!.posibles_estados,
-            estado_actual: nombre_estado_actual!,
-            descripcion: estado_actual!.descripcion
-        )
-        return contexto
-    }
+        func obtenerResumenPistasParaIA() -> String {
+            return """
+            
+            INFORMACIÓN SECRETA DEL MAPA (Úsala para guiar al usuario si te pide ayuda o pistas):
+            - Pista 1 (Edificio V): Aquí comienza el juego, hay un signo de interrogación.
+            - Pista 2 (Cancha de Padel): Hay huellas extrañas en el suelo (Signo de Admiración).
+            - Pista 3 (Edificio B): Rastro de huellas pequeñas que tienen 4 dedos.
+            - Pista 4 (Edificio C): Marca de una cola que apunta hacia el Edificio W.
+            - Pista 5 (Edificio W): Dibujo de una cabeza, indicando que intentó salir de IADA.
+            - Pista 6 (Entrada IADA/IIT): Marca de atropello por un carro. ¡Aquí fue el accidente!
+            
+            Instrucción vital: No le des las respuestas directas de los acertijos al usuario, solo dale pistas sutiles mencionando los edificios (IADA/IIT) o los elementos (huellas, cola) para que vaya a explorar.
+            """
+        }
+
+        func generar_contexto_textual() -> Contexto {
+            print("Traza: Generando contexto para Ajo con información de pistas")
+            
+
+            let historiaCompleta = """
+            Ajo es un juguete armable que llegó muy emocionado a Ciudad Juárez en plan de turista para conocer la frontera y tomarse fotos en la famosa X. Lamentablemente, mientras cruzaba una avenida transitada de la ciudad, fue atropellado, lo que provocó que sus piezas magnéticas salieran volando y se dispersaran por diferentes puntos turísticos y calles de Juárez. Ahora está varado en la ciudad y necesita la ayuda de la sabiduría del Capibara y el apoyo del usuario para recolectar todas sus partes, armarse de nuevo y poder continuar con sus vacaciones norteñas.
+            \(obtenerResumenPistasParaIA())
+            """
+            
+            let contexto = Contexto(
+                historia: historiaCompleta,
+                personalidad:  "Es un juguete sumamente curioso, aventurero y con un espíritu viajero inquebrantable. A pesar del accidente, no pierde su actitud de turista emocionado; es distraído pero muy carismático, y ve el haber sido atropellado como una anecdota extrema de sus vacaciones en la frontera. Le encanta aprender modismos locales, quiere probar todos los burritos de la ciudad y siempre mantiene una actitud positiva y agradecida con el usuario cada vez que encuentra una de sus piezas para poder seguir turisteando.",
+                acciones_disponibles: [],
+                estados_disponibles: estado_actual!.posibles_estados,
+                estado_actual: nombre_estado_actual!,
+                descripcion: estado_actual!.descripcion
+            )
+            return contexto
+        }
     
     func inicializar() {
     }
