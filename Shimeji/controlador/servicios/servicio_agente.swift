@@ -67,21 +67,28 @@ class ServicioAgente {
     }
     
     private func iniciarEscucha(id: String) {
-        // Quitamos cualquier escucha anterior
-        listener?.remove()
-        
-        // Empezamos a escuchar el documento en tiempo real
-        listener = base_de_datos.collection("peticiones").document(id)
-            .addSnapshotListener { documentSnapshot, error in
-                guard let document = documentSnapshot else { return }
-                
-                // Si el documento cambia, actualizamos nuestra variable 'peticion'
-                if let peticionActualizada = try? document.data(as: Peticion.self) {
-                    self.peticion = peticionActualizada
+            listener?.remove()
+            
+            listener = base_de_datos.collection("peticiones").document(id)
+                .addSnapshotListener { documentSnapshot, error in
+                    guard let document = documentSnapshot else { return }
+                    
+                    // Usamos un bloque do-catch en lugar de try? para ver los errores
+                    do {
+                        let peticionActualizada = try document.data(as: Peticion.self)
+                        
+                        // Solo actualizamos en el hilo principal para que SwiftUI reaccione
+                        DispatchQueue.main.async {
+                            self.peticion = peticionActualizada
+                        }
+                        
+                    } catch {
+                        print("⚠️ SWIFT NO PUDO LEER EL DOCUMENTO DE FIREBASE:")
+                        print("Error: \(error.localizedDescription)")
+                        // Esto te ayudará a saber si Python le quitó un campo o le puso un tipo de dato equivocado
+                    }
                 }
-            }
-    }
-    
+        }
     // Limpiamos al destruir la clase
     deinit {
         listener?.remove()
