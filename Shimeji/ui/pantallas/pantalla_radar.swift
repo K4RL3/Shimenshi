@@ -135,13 +135,12 @@ struct PantallaRadarView: View {
                 }
             }
         }
-        // 🔥 NUEVO: MODIFICADOR DE HOJA FLOTANTE PARA EL CHAT DE IA 🔥
-        .sheet(isPresented: $mostrarChatIA) {
-            ChatView()
-                // Abre el chat a la mitad para mantener el contexto visual del radar abajo
-                .presentationDetents([.medium, .large])
-                // Añade la pequeña barra visual superior que indica que se puede deslizar hacia abajo
-                .presentationDragIndicator(.visible)
-        }
+
+                .sheet(isPresented: $mostrarChatIA) {
+                    ChatView()
+                        // Al dejar solo .large, se abrirá en tamaño máximo por defecto
+                        .presentationDetents([.large])
+                        .presentationDragIndicator(.visible)
+                }
     }
 }

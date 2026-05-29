@@ -69,6 +69,13 @@
 //  Created by alumno on 5/4/26.
 //
 
+//
+//  chat_gato.swift
+//  Shimeji
+//
+//  Created by alumno on 5/4/26.
+//
+
 import SwiftUI
 
 enum AgenteIA: Int {
@@ -100,7 +107,7 @@ struct ChatView: View {
                            startPoint: .topLeading, endPoint: .bottomLeading)
             .ignoresSafeArea()
             
-            VStack(spacing: 30) {
+            VStack(spacing: 20) {
                 // CABECERA
                 VStack(spacing: 8) {
                     Text("ASISTENTE IA ACTIVO")
@@ -113,22 +120,20 @@ struct ChatView: View {
                         .font(.headline)
                         .foregroundColor(.white)
                 }
-                .padding(.top, 40)
+                .padding(.top, 30)
                 
-                Spacer()
-                
-                // ANIMACIÓN CENTRAL
+                // ANIMACIÓN CENTRAL (La hacemos un poco más compacta para dar más espacio al texto)
                 ZStack {
-                    Circle().fill(Color.white.opacity(0.2)).frame(width: 100, height: 100)
+                    Circle().fill(Color.white.opacity(0.2)).frame(width: 80, height: 80)
                     Circle()
                         .stroke(agenteSeleccionado == .capi ? Color.orange.opacity(0.8) : Color.cyan.opacity(0.8), lineWidth: 3)
-                        .frame(width: 100, height: 100)
+                        .frame(width: 80, height: 80)
                         .scaleEffect(animarIA ? 1.5 : 1.0)
                         .opacity(animarIA ? 0.0 : 1.0)
                         .animation(estaPensando ? Animation.easeOut(duration: 1.5).repeatForever(autoreverses: false) : .default, value: animarIA)
                     
                     Image(systemName: agenteSeleccionado == .capi ? "pawprint.fill" : "drop.fill")
-                        .font(.system(size: 45))
+                        .font(.system(size: 35))
                         .foregroundColor(.white)
                         .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 3)
                 }
@@ -136,9 +141,7 @@ struct ChatView: View {
                     animarIA = true
                 }
                 
-                Spacer()
-                
-                // TARJETA DE ACCIONES
+                // TARJETA DE ACCIONES (Crecerá para ocupar el resto de la pantalla)
                 VStack(spacing: 15) {
                     
                     // BOTONES DE SELECCIÓN DE IA
@@ -183,7 +186,7 @@ struct ChatView: View {
                             } else if let respuesta = entidad_ia.peticion?.respuesta, !respuesta.isEmpty {
                                 Text(respuesta)
                                     .font(.body).foregroundColor(.black)
-                                    .multilineTextAlignment(.center)
+                                    .multilineTextAlignment(.leading) // Mejor para leer textos largos
                                 
                             } else {
                                 Text("Hablando con \(agenteSeleccionado.nombre). ¿En qué te puedo ayudar?")
@@ -192,9 +195,10 @@ struct ChatView: View {
                             }
                         }
                         .padding(.horizontal)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .frame(maxHeight: 150)
+                    // 🔥 AQUÍ ESTÁ LA MAGIA: Cambiamos 150 por .infinity para que el texto tenga muchísimo espacio
+                    .frame(maxHeight: .infinity)
                     
                     // ENTRADA DE TEXTO
                     TextField("Pregúntale algo a \(agenteSeleccionado.nombre)...", text: $mensaje_a_enviar)
@@ -203,20 +207,15 @@ struct ChatView: View {
                         .cornerRadius(10)
                         .foregroundColor(.black)
                     
-                    // BOTÓN DE ENVIAR (🔥 LÓGICA PURA, SIN HACKS DE VISTA)
+                    // BOTÓN DE ENVIAR
                     Button(action: {
                         guard !mensaje_a_enviar.isEmpty else { return }
                         estaPensando = true
                         
-                        // 1. Accedemos directamente a la Máquina de Estados a través de su índice
                         let maquinaActiva = controlador.maquinas_de_estados[agenteSeleccionado.rawValue]
-                        
-                        // 2. Le pedimos a la Máquina de Estados que nos entregue su Contexto PURO
                         let contextoPuro = maquinaActiva.generar_contexto_textual()
                         
-                        // 3. Enviamos el mensaje delegando todo a Firebase y LMS
                         entidad_ia.crear_peticion(contexto: contextoPuro, mensaje_del_usuario: mensaje_a_enviar)
-                        
                         mensaje_a_enviar = ""
                     }) {
                         Text("Enviar Mensaje")
@@ -228,7 +227,8 @@ struct ChatView: View {
                 }
                 .padding(.vertical, 25).padding(.horizontal, 15)
                 .background(RoundedRectangle(cornerRadius: 25).fill(Color.white).shadow(radius: 10))
-                .padding(.horizontal, 25).padding(.bottom, 40)
+                .padding(.horizontal, 20)
+                .padding(.bottom, 20) // Redujimos los márgenes inferiores para dar más espacio
             }
         }
         .onChange(of: entidad_ia.peticion?.respuesta) { _, nuevaRespuesta in
@@ -239,6 +239,10 @@ struct ChatView: View {
     }
 }
 
+#Preview {
+    ChatView()
+        .environment(ControladorAplicacion())
+}
 #Preview {
     ChatView()
         .environment(ControladorAplicacion())
