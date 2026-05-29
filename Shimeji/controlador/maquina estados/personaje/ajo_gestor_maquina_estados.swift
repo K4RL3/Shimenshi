@@ -22,6 +22,7 @@ class AjoGestorEstados: MaquinaEstadosGenerica{
     init(){
         estado_actual = estados_disponibles[PersonajeNeutro.nombre]
         estado_actual?.contexto = self
+        nombre_estado_actual = PersonajeNeutro.nombre
     }
     
     
@@ -29,7 +30,7 @@ class AjoGestorEstados: MaquinaEstadosGenerica{
         print("Traza")
         
         let contexto = Contexto(
-            historia: "Es un juguete armable que llegó muy emocionado a Ciudad Juárez en plan de turista para conocer la frontera y tomarse fotos en la famosa X. Lamentablemente, mientras cruzaba una avenida transitada de la ciudad, fue atropellado, lo que provocó que sus piezas magnéticas salieran volando y se dispersaran por diferentes puntos turísticos y calles de Juárez. Ahora está varado en la ciudad y necesita la ayuda de la sabiduría del Capibara y el apoyo del usuario para recolectar todas sus partes, armarse de nuevo y poder continuar con sus vacaciones norteñas.",
+            historia: "Ajo es un juguete armable que llegó muy emocionado a Ciudad Juárez en plan de turista para conocer la frontera y tomarse fotos en la famosa X. Lamentablemente, mientras cruzaba una avenida transitada de la ciudad, fue atropellado, lo que provocó que sus piezas magnéticas salieran volando y se dispersaran por diferentes puntos turísticos y calles de Juárez. Ahora está varado en la ciudad y necesita la ayuda de la sabiduría del Capibara y el apoyo del usuario para recolectar todas sus partes, armarse de nuevo y poder continuar con sus vacaciones norteñas.",
             personalidad:  "Es un juguete sumamente curioso, aventurero y con un espíritu viajero inquebrantable. A pesar del accidente, no pierde su actitud de turista emocionado; es distraído pero muy carismático, y ve el haber sido atropellado como una anecdota extrema de sus vacaciones en la frontera. Le encanta aprender modismos locales, quiere probar todos los burritos de la ciudad y siempre mantiene una actitud positiva y agradecida con el usuario cada vez que encuentra una de sus piezas para poder seguir turisteando.",
             acciones_disponibles: [],
             estados_disponibles: estado_actual!.posibles_estados,

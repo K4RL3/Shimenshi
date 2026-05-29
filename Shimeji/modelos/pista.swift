@@ -9,7 +9,7 @@ import CoreLocation
 
 struct Pista: Identifiable{
     let ubicacion: CLLocation
-    var distancia_minima: Double = 5.0
+    var distancia_minima: Double = 25.0
     var distancia_maxima: Double = 100.0
     let id: String
     let cuerpo: CuerpoPista

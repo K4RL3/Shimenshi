@@ -1,23 +1,16 @@
 {
-  "advancedEditorSelectedIdentifier" : "BehaviorsPluginID",
+  "advancedEditorSelectedIdentifier" : "ProjectBrowser",
   "openSceneRelativePaths" : [
-    "ajo modelos\/animaciones\/asamblado0.usda",
-    "ajo modelos\/animaciones\/asamblado1.usda",
-    "ajo modelos\/animaciones\/asamblado2.usda",
-    "ajo modelos\/animaciones\/asamblado3.usda",
-    "ajo modelos\/animaciones\/asamblado4.usda",
     "esenas\/celebracion_final.usda",
-    "ajo modelos\/piezas-animaciones\/branquias.usda",
-    "ajo modelos\/piezas-animaciones\/brazo.usda",
-    "ajo modelos\/piezas-animaciones\/cola.usda",
     "esenas\/caminando_a_pieza.usda",
     "capi modelos\/cappi animado.usda",
     "esenas\/caminar_saludo.usda",
     "esenas\/escena1.usda",
-    "ajo modelos\/animaciones\/muerte.usda",
     "ajo_modelos\/piezas-animaciones\/pata.usda",
     "ajo_modelos\/animaciones\/muerte.usda",
-    "esenas\/Untitled Scene.usda"
+    "ajo_modelos\/piezas-animaciones\/brazo.usda",
+    "ajo_modelos\/piezas-animaciones\/branquias.usda",
+    "ajo_modelos\/piezas-animaciones\/cola.usda"
   ],
   "recentIdentifiers" : {
     "0E2C98D8-2949-4CEB-B5F8-90E92CF6E74D" : [
@@ -61,7 +54,97 @@
     ]
   },
   "sceneCameraHistory" : {
+    "0CB794B2-43AF-4C84-9DFE-1FF9BE904B7E" : [
+      {
+        "date" : 801766023.95189,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0.082308605,
+          0.26257473,
+          0.31668487,
+          1
+        ]
+      },
+      {
+        "date" : 801766021.294787,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          -0.10117893,
+          1.6652607,
+          1.9923201,
+          1
+        ]
+      }
+    ],
     "0E2C98D8-2949-4CEB-B5F8-90E92CF6E74D" : [
+      {
+        "date" : 801759633.429088,
+        "title" : "Untitled",
+        "transform" : [
+          -0.83215475,
+          -1.405472e-08,
+          0.5545435,
+          0,
+          0.011545427,
+          0.9997832,
+          0.017325237,
+          0,
+          -0.55442345,
+          0.020819671,
+          -0.8319744,
+          0,
+          -1.4339055,
+          0.05384589,
+          -2.1517353,
+          1
+        ]
+      },
+      {
+        "date" : 801759632.13927,
+        "title" : "Untitled",
+        "transform" : [
+          -0.9219541,
+          -1.73285e-08,
+          0.3872991,
+          0,
+          -0.059723474,
+          0.98803884,
+          -0.14216995,
+          0,
+          -0.3826666,
+          -0.15420508,
+          -0.9109264,
+          0,
+          -0.98969084,
+          -0.3988207,
+          -2.3559294,
+          1
+        ]
+      },
       {
         "date" : 801734894.715507,
         "title" : "Untitled",
@@ -215,6 +298,74 @@
           -0.07386012,
           2.6306934,
           0.051005527,
+          1
+        ]
+      }
+    ],
+    "3EADA7DD-0FCE-4CCF-88DA-B26C3B188F80" : [
+      {
+        "date" : 801766261.208997,
+        "title" : "Untitled",
+        "transform" : [
+          0.99967873,
+          6.884433e-10,
+          -0.025345823,
+          0,
+          -0.004239937,
+          0.98590887,
+          -0.16722968,
+          0,
+          0.024988672,
+          0.1672834,
+          0.9855921,
+          0,
+          -0.035202943,
+          -0.05083403,
+          0.5573576,
+          1
+        ]
+      },
+      {
+        "date" : 801766226.635987,
+        "title" : "Untitled",
+        "transform" : [
+          0.99710995,
+          7.527987e-10,
+          -0.07597235,
+          0,
+          -0.029513722,
+          0.9214573,
+          -0.38735706,
+          0,
+          0.07000527,
+          0.3884797,
+          0.91879416,
+          0,
+          -0.013253271,
+          0.064158514,
+          0.4939969,
+          1
+        ]
+      },
+      {
+        "date" : 801766040.521254,
+        "title" : "Untitled",
+        "transform" : [
+          0.99710995,
+          7.527987e-10,
+          -0.07597235,
+          0,
+          -0.029513722,
+          0.9214573,
+          -0.38735706,
+          0,
+          0.07000527,
+          0.3884797,
+          0.91879416,
+          0,
+          -0.013253852,
+          0.064164646,
+          0.4940053,
           1
         ]
       }
@@ -731,6 +882,30 @@
         ]
       }
     ],
+    "6B606069-9702-44CB-BD97-79AD4E7B0ED2" : [
+      {
+        "date" : 801766047.050519,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          0.37158126,
+          0.37158138,
+          1
+        ]
+      }
+    ],
     "6C0382BC-DFDF-483A-B73D-920A4119DD8F" : [
       {
         "date" : 801454706.956907,
@@ -883,6 +1058,30 @@
           2.7284184,
           6.4903326,
           4.806601,
+          1
+        ]
+      }
+    ],
+    "6D529ABB-800C-4E29-8598-897A90613074" : [
+      {
+        "date" : 801766034.009957,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          0.3026394,
+          0.30263945,
           1
         ]
       }
@@ -1213,5 +1412,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "esenas\/celebracion_final.usda"
+  "selectedSceneRelativePath" : "ajo_modelos\/piezas-animaciones\/branquias.usda"
 }

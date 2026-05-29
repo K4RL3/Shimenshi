@@ -61,11 +61,11 @@ struct PantallaNarrativaView: View {
                 }
             }
             .navigationDestination(isPresented: $mostrarRadar) {
-                PantallaRadarView(
-                    controlador: controlador,
-                    pistaActual: pistas[0]
-                )
-                .navigationBarBackButtonHidden(true)
+                            PantallaRadarView(
+                                controlador: controlador,
+                                indicePistaActual: 0
+            )
+            .navigationBarBackButtonHidden(true)
             }
         }
     }

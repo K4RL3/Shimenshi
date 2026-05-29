@@ -1,37 +1,89 @@
+////
+////  servicio_agente.swift
+////  Shimeji
+////
+////  Created by alumno on 5/6/26.
+////
 //
-//  servicio_agente.swift
-//  Shimeji
+//import FirebaseFirestore
+//import Combine
 //
-//  Created by alumno on 5/6/26.
-//
-
+//@Observable
+//class ServicioAgente{
+//    var peticion: Peticion? = nil
+//    //var peticion: [Peticion] = []
+//    
+//    private var base_de_datos = Firestore.firestore()
+//    
+//    func crear_peticion(contexto: Contexto, mensaje_del_usuario: String){
+//        print("hiiii \(#function)")
+//        
+//        let peticion = Peticion(
+//            id: UUID().uuidString,
+//            estado: .creacion,
+//            contexto: contexto,
+//            mensaje: mensaje_del_usuario,
+//            comando_a_ejecutar: nil,
+//            respuesta: nil,
+//        )
+//        do {
+//            var resultado_enviar_peticion = try base_de_datos.collection("peticiones").addDocument(from: peticion)
+//            print("el resultado de enviar la peticion \(resultado_enviar_peticion)")
+//        }
+//        catch {
+//            print("lol no le supiste \(error)")
+//        }
+//    }
+//}
 import FirebaseFirestore
-import Combine
+import Observation
 
 @Observable
-class ServicioAgente{
+class ServicioAgente {
     var peticion: Peticion? = nil
-    //var peticion: [Peticion] = []
-    
     private var base_de_datos = Firestore.firestore()
+    private var listener: ListenerRegistration? = nil // 🔥 NUEVO: El escuchador
     
-    func crear_peticion(contexto: Contexto, mensaje_del_usuario: String){
-        print("hiiii \(#function)")
-        
-        let peticion = Peticion(
+    func crear_peticion(contexto: Contexto, mensaje_del_usuario: String) {
+        let nuevaPeticion = Peticion(
             id: UUID().uuidString,
             estado: .creacion,
             contexto: contexto,
             mensaje: mensaje_del_usuario,
             comando_a_ejecutar: nil,
-            respuesta: nil,
+            respuesta: nil
         )
+        
         do {
-            var resultado_enviar_peticion = try base_de_datos.collection("peticiones").addDocument(from: peticion)
-            print("el resultado de enviar la peticion \(resultado_enviar_peticion)")
+            // Guardamos en Firebase
+            try base_de_datos.collection("peticiones").document(nuevaPeticion.id).setData(from: nuevaPeticion)
+            
+            // 🔥 ESCUCHAMOS LOS CAMBIOS DE ESTA PETICIÓN ESPECÍFICA
+            iniciarEscucha(id: nuevaPeticion.id)
+            
+        } catch {
+            print("❌ Error al enviar: \(error)")
         }
-        catch {
-            print("lol no le supiste \(error)")
-        }
+    }
+    
+    private func iniciarEscucha(id: String) {
+        // Quitamos cualquier escucha anterior
+        listener?.remove()
+        
+        // Empezamos a escuchar el documento en tiempo real
+        listener = base_de_datos.collection("peticiones").document(id)
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else { return }
+                
+                // Si el documento cambia, actualizamos nuestra variable 'peticion'
+                if let peticionActualizada = try? document.data(as: Peticion.self) {
+                    self.peticion = peticionActualizada
+                }
+            }
+    }
+    
+    // Limpiamos al destruir la clase
+    deinit {
+        listener?.remove()
     }
 }
