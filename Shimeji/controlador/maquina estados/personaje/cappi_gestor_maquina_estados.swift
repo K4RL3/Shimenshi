@@ -14,7 +14,8 @@ class CappiGestorEstados: MaquinaEstadosGenerica{
     var controlador_general: (any ProcesarComandos)?
     var estados_disponibles: [String : Estado] = [
         PersonajeNeutro.nombre: PersonajeNeutro(),
-        PersonajeFeliz.nombre: PersonajeFeliz()
+        PersonajeFeliz.nombre: PersonajeFeliz(),
+        PersonajeTriste.nombre: PersonajeTriste()
     ]
     var estado_actual: Estado? = nil
     var nombre_estado_actual: String?

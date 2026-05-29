@@ -1,0 +1,23 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "resources" : [
+    {
+      "filename" : "bnuy.arreferenceimage"
+    },
+    {
+      "filename" : "hola.arreferenceimage"
+    },
+    {
+      "filename" : "house.arreferenceimage"
+    },
+    {
+      "filename" : "jaus.arreferenceimage"
+    },
+    {
+      "filename" : "signo_exclamacion.arreferenceimage"
+    }
+  ]
+}

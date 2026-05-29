@@ -19,7 +19,7 @@ let pistas = [
             informacion: "Signo de Admiración (Cancha de padel). Hay huellas extrañas en el suelo.",
             interacciones: [
                 BotonPista(mensaje: "Seguir las huellas al Edificio B", conecta_con_pista: "pista_3"),
-                BotonPista(mensaje: "Ignorar e ir a la cafetería", conecta_con_pista: "pista_1")
+                BotonPista(mensaje: "Ignorar e ir a la caftería", conecta_con_pista: "pista_1")
             ]
         )
     ),

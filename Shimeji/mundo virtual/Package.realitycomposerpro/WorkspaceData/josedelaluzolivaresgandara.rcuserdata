@@ -1,5 +1,5 @@
 {
-  "advancedEditorSelectedIdentifier" : "BehaviorsPluginID",
+  "advancedEditorSelectedIdentifier" : "ProjectBrowser",
   "openSceneRelativePaths" : [
     "ajo modelos\/animaciones\/asamblado0.usda",
     "ajo modelos\/animaciones\/asamblado1.usda",
@@ -12,7 +12,8 @@
     "ajo modelos\/piezas-animaciones\/cola.usda",
     "esenas\/caminando_a_pieza.usda",
     "capi modelos\/cappi animado.usda",
-    "esenas\/caminar_saludo.usda"
+    "esenas\/caminar_saludo.usda",
+    "esenas\/Untitled Scene.usda"
   ],
   "recentIdentifiers" : {
     "2FC0953B-3C75-4931-B852-8399BC935A40" : [
@@ -925,6 +926,28 @@
     ],
     "F96C96ED-C400-4783-BA8C-CF5D8B91DBF2" : [
       {
+        "date" : 801710623.421311,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          3.4987507,
+          3.4987512,
+          1
+        ]
+      },
+      {
         "date" : 801458155.970081,
         "title" : "Untitled",
         "transform" : [
@@ -951,5 +974,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "esenas\/caminar_saludo.usda"
+  "selectedSceneRelativePath" : "esenas\/Untitled Scene.usda"
 }
