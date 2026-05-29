@@ -7,9 +7,11 @@
 
 import SwiftUI
 import FirebaseCore
+import CoreLocation
 
 @main
 struct ShimejiApp: App {
+    // 1. Aquí creas el "cerebro" oficial y lo mantienes vivo en memoria
     @State var controlador_general = ControladorAplicacion()
     
     init (){
@@ -17,9 +19,9 @@ struct ShimejiApp: App {
     }
     
     var body: some Scene {
-        WindowGroup {
-            SeguimientoImagenes()
-                .environment(controlador_general)
+            WindowGroup {
+                PantallaTest()
+                    .environment(controlador_general)
+            }
         }
-    }
 }

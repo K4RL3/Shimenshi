@@ -1,0 +1,196 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.60.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    float3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def RealityKitComponent "AnimationLibrary"
+    {
+        token info:id = "RealityKit.AnimationLibrary"
+
+        def RealityKitAnimationFile "_Root_morir"
+        {
+            uniform bool looping = 1
+            uniform string name = "/Root/morir"
+        }
+
+        def RealityKitClipDefinition "Clip_default_subtree_animation"
+        {
+            uniform string[] clipNames = []
+            uniform string sourceAnimationName = "default subtree animation"
+            uniform double[] startTimes = []
+        }
+
+        def RealityKitAnimationFile "Ajolote_morido"
+        {
+            uniform asset file = @../../ajo_modelos/animaciones/Ajolote_morido.usdz@
+            uniform string name = "Ajolote_morido"
+        }
+
+        def RealityKitClipDefinition "Clip_Ajolote_morido"
+        {
+            uniform string[] clipNames = ["Clip", "piso"]
+            uniform string sourceAnimationName = "Ajolote_morido"
+            uniform double[] startTimes = [0, 0.6666666666666666]
+        }
+
+        def RealityKitAnimationFile "piso"
+        {
+            uniform bool looping = 1
+            uniform string name = "piso"
+        }
+    }
+
+    def RealityKitTimeline "muerte"
+    {
+        reorder nameChildren = ["Track2", "Track"]
+        def RealityKitTrack "Track2"
+        {
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "default subtree animation"
+                int blendLayer = 500
+                double duration = 0.6666666865348816
+                uniform token info:id = "1FCE497A-CE86-4493-B9E5-5B46FBC159C2"
+                bool separateAnimatedValue = 1
+                double startTime = 0
+                rel target = </Root/Ajolote_morido>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+
+            def RealityKitAction "Animation2"
+            {
+                string actionKind = "animation"
+                string animation = "Clip 1"
+                int blendLayer = 500
+                double duration = 1.9868214962137642e-8
+                uniform token info:id = "9CB2B959-E1E4-406E-A887-29B9103354C4"
+                double loopCount = 0
+                bool separateAnimatedValue = 1
+                double startTime = 0.6666666866348815
+                rel target = </Root/Ajolote_morido>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def "Ajolote_morido" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        references = @../../ajo_modelos/animaciones/Ajolote_morido.usdz@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (0.1, 0.1, 0.1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "AnimationLibrary"
+        {
+            token info:id = "RealityKit.AnimationLibrary"
+
+            def RealityKitAnimationFile "default_subtree_animation"
+            {
+                uniform bool looping = 1
+                uniform string name = "default subtree animation"
+            }
+
+            def RealityKitAnimationFile "Ajolote_morido"
+            {
+                uniform asset file = @../../ajo_modelos/animaciones/Ajolote_morido.usdz@
+                uniform string name = "Ajolote_morido"
+            }
+
+            def RealityKitClipDefinition "Clip_Ajolote_morido"
+            {
+                uniform string[] clipNames = ["Clip", "Clip 1"]
+                uniform string sourceAnimationName = "Ajolote_morido"
+                uniform double[] startTimes = [0, 0.6666666666666666]
+            }
+
+            def RealityKitAnimationFile "Clip_1"
+            {
+                uniform bool looping = 1
+                uniform string name = "Clip 1"
+            }
+        }
+
+        def RealityKitComponent "RCP_BehaviorsContainer"
+        {
+            rel behaviors = </Root/Ajolote_morido/OnAddedToScene>
+            uniform token info:id = "RCP.BehaviorsContainer"
+        }
+
+        def Preliminary_Behavior "OnAddedToScene"
+        {
+            rel actions = </Root/Ajolote_morido/OnAddedToScene/Action>
+            uniform bool exclusive
+            rel triggers = </Root/Ajolote_morido/OnAddedToScene/Trigger>
+
+            def Preliminary_Trigger "Trigger"
+            {
+                rel affectedObjects = </Root/Ajolote_morido>
+                token info:id = "SceneTransition"
+            }
+
+            def Preliminary_Action "Action"
+            {
+                rel affectedObjects = </Root>
+                rel animationLibraryKey = </Root/muerte>
+                rel animationLibraryKeyOverrideKey = </Root/Ajolote_morido/OnAddedToScene/Trigger>
+                token info:id = "PlayTimeline"
+                int loops = 0
+                int performCount = 1
+                token type = "serial"
+            }
+        }
+    }
+
+    def RealityKitComponent "RCP_BehaviorsContainer"
+    {
+        rel behaviors = </Root/OnAddedToScene>
+        uniform token info:id = "RCP.BehaviorsContainer"
+    }
+
+    def Preliminary_Behavior "OnAddedToScene"
+    {
+        rel actions = </Root/OnAddedToScene/Action>
+        uniform bool exclusive
+        rel triggers = </Root/OnAddedToScene/Trigger>
+
+        def Preliminary_Trigger "Trigger"
+        {
+            rel affectedObjects = </Root>
+            token info:id = "SceneTransition"
+        }
+
+        def Preliminary_Action "Action"
+        {
+            rel affectedObjects = </Root>
+            rel animationLibraryKey = </Root/muerte>
+            rel animationLibraryKeyOverrideKey = </Root/OnAddedToScene/Trigger>
+            token info:id = "PlayTimeline"
+            int loops = 0
+            int performCount = 1
+            token type = "serial"
+        }
+    }
+}
+

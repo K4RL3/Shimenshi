@@ -1,5 +1,5 @@
 {
-  "advancedEditorSelectedIdentifier" : "ProjectBrowser",
+  "advancedEditorSelectedIdentifier" : "BehaviorsPluginID",
   "openSceneRelativePaths" : [
     "ajo modelos\/animaciones\/asamblado0.usda",
     "ajo modelos\/animaciones\/asamblado1.usda",
@@ -13,13 +13,23 @@
     "esenas\/caminando_a_pieza.usda",
     "capi modelos\/cappi animado.usda",
     "esenas\/caminar_saludo.usda",
+    "esenas\/escena1.usda",
+    "ajo modelos\/animaciones\/muerte.usda",
+    "ajo_modelos\/piezas-animaciones\/pata.usda",
+    "ajo_modelos\/animaciones\/muerte.usda",
     "esenas\/Untitled Scene.usda"
   ],
   "recentIdentifiers" : {
+    "0E2C98D8-2949-4CEB-B5F8-90E92CF6E74D" : [
+
+    ],
     "2FC0953B-3C75-4931-B852-8399BC935A40" : [
 
     ],
     "43CF74DD-49EF-409C-B3AD-FD46B5FB60FC" : [
+
+    ],
+    "4926356F-03B9-44FC-A20D-9B91ADDB62E7" : [
 
     ],
     "516F0338-A7B2-4D53-84A0-5FCB468069FE" : [
@@ -43,11 +53,82 @@
     "AC910331-E1A2-4DA0-A505-4104F19F9627" : [
 
     ],
+    "E77054D4-AC0D-4B3E-9DB5-43F3654D4FA5" : [
+
+    ],
     "F96C96ED-C400-4783-BA8C-CF5D8B91DBF2" : [
 
     ]
   },
   "sceneCameraHistory" : {
+    "0E2C98D8-2949-4CEB-B5F8-90E92CF6E74D" : [
+      {
+        "date" : 801734894.715507,
+        "title" : "Untitled",
+        "transform" : [
+          0.96963537,
+          -6.587564e-09,
+          0.24455522,
+          0,
+          0.1174423,
+          0.8771437,
+          -0.46564624,
+          0,
+          -0.21451001,
+          0.48022813,
+          0.85050946,
+          0,
+          -0.5547873,
+          1.2420142,
+          2.199673,
+          1
+        ]
+      },
+      {
+        "date" : 801734890.323978,
+        "title" : "Untitled",
+        "transform" : [
+          0.95990974,
+          -6.1494667e-09,
+          0.2803093,
+          0,
+          0.06255319,
+          0.9747824,
+          -0.21421133,
+          0,
+          -0.27324054,
+          0.22315781,
+          0.93570316,
+          0,
+          -0.70668197,
+          0.5771531,
+          2.420009,
+          1
+        ]
+      },
+      {
+        "date" : 801734876.773908,
+        "title" : "Untitled",
+        "transform" : [
+          0.9312389,
+          -5.0557325e-10,
+          -0.36440927,
+          0,
+          -0.25319535,
+          0.719193,
+          -0.64703447,
+          0,
+          0.2620806,
+          0.69481045,
+          0.6697405,
+          0,
+          0.677819,
+          1.7969882,
+          1.7321497,
+          1
+        ]
+      }
+    ],
     "15FEB68C-7AD1-472C-BFBE-3FA11A5198B2" : [
       {
         "date" : 801455596.260813,
@@ -361,6 +442,50 @@
       }
     ],
     "4926356F-03B9-44FC-A20D-9B91ADDB62E7" : [
+      {
+        "date" : 801736269.385778,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          -0,
+          0,
+          -0,
+          0.7071069,
+          -0.7071067,
+          0,
+          0,
+          0.7071067,
+          0.7071069,
+          0,
+          1.30025,
+          1.093513,
+          0.8152168,
+          1
+        ]
+      },
+      {
+        "date" : 801734973.42629,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          1.2060438,
+          1.206044,
+          1
+        ]
+      },
       {
         "date" : 801531403.535624,
         "title" : "Untitled",
@@ -900,6 +1025,74 @@
         ]
       }
     ],
+    "D6F29260-7B7D-43F8-8069-39F2D65AA744" : [
+      {
+        "date" : 801740435.938001,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          0.5950102,
+          0.59501034,
+          1
+        ]
+      },
+      {
+        "date" : 801740430.684245,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          2.1120777,
+          2.112078,
+          1
+        ]
+      },
+      {
+        "date" : 801740428.227155,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          2.345187,
+          2.3451872,
+          1
+        ]
+      }
+    ],
     "D9DA9C1D-8717-4D17-B91B-3ECE0F43AE11" : [
       {
         "date" : 801536375.90051,
@@ -924,7 +1117,53 @@
         ]
       }
     ],
+    "E77054D4-AC0D-4B3E-9DB5-43F3654D4FA5" : [
+      {
+        "date" : 801738886.075983,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          1.7181951,
+          1.7181953,
+          1
+        ]
+      }
+    ],
     "F96C96ED-C400-4783-BA8C-CF5D8B91DBF2" : [
+      {
+        "date" : 801739828.94189,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          -0,
+          0,
+          -0,
+          0.86663765,
+          -0.4989381,
+          0,
+          0,
+          0.4989381,
+          0.86663765,
+          0,
+          0,
+          1.7114381,
+          2.5651522,
+          1
+        ]
+      },
       {
         "date" : 801710623.421311,
         "title" : "Untitled",
@@ -974,5 +1213,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "esenas\/Untitled Scene.usda"
+  "selectedSceneRelativePath" : "esenas\/celebracion_final.usda"
 }

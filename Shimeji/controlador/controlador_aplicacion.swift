@@ -23,6 +23,8 @@ public class ControladorAplicacion{
     
     public var pantallas_emergentes: [PantallasDisponibles] = []
     
+    public var rastreadorGPS = GestorGPS()
+    
     private var planetas_cargados: [Entity] = []
     var entidades_ancla: [AnchorEntity] = []
 

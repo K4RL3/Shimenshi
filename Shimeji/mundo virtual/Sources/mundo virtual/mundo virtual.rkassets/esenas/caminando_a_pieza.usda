@@ -89,11 +89,15 @@ def Xform "Root"
                 token type = "serial"
             }
         }
+
+        over "Carpincho_mapa"
+        {
+        }
     }
 
     def RealityKitTimeline "camina_a_brazo"
     {
-        reorder nameChildren = ["Track", "Track2", "Track4", "Track3", "Track5", "Track6", "Track7", "Track8"]
+        reorder nameChildren = ["Track", "Track2", "Track4", "Track3", "Track5", "Track6", "Track7", "Track8", "Track9"]
         def RealityKitTrack "Track"
         {
         }
@@ -204,6 +208,14 @@ def Xform "Root"
                 double startTime = 6.835000000100001
                 rel timeline = </Root/cappi_animado/ildie>
             }
+
+            def RealityKitAction "Disable_Entity"
+            {
+                string actionKind = "disable"
+                uniform token info:id = "B1BAA98E-9E45-4A95-861D-51F895624263"
+                double startTime = 7.6204357841138295
+                rel target = </Root/cappi_animado/Carpincho_parado>
+            }
         }
 
         def RealityKitTrack "Track7"
@@ -216,6 +228,14 @@ def Xform "Root"
                 uniform token info:id = "1D0BF82B-0C14-41C3-BC05-81352C117699"
                 double startTime = 3
                 rel timeline = </Root/cappi_animado/ildie>
+            }
+
+            def RealityKitAction "Enable_Entity"
+            {
+                string actionKind = "enable"
+                uniform token info:id = "D9FF759A-4F98-4D64-ACA9-A743191E6CE4"
+                double startTime = 7.623907508844633
+                rel target = </Root/cappi_animado/Carpincho_mapa>
             }
         }
 
@@ -231,12 +251,50 @@ def Xform "Root"
                 rel timeline = </Root/cappi_animado/mapa>
             }
         }
+
+        def RealityKitTrack "Track9"
+        {
+            def RealityKitAction "Disable_Entity"
+            {
+                string actionKind = "disable"
+                uniform token info:id = "FB237367-1C64-4B54-844C-DA33AF5BAA5D"
+                double startTime = 0
+                rel target = </Root/cappi_animado/Carpincho_mapa>
+            }
+        }
     }
 
     def RealityKitComponent "RCP_BehaviorsContainer"
     {
-        rel behaviors = </Root/OnNotification>
+        rel behaviors = [
+            </Root/OnAddedToScene>,
+            </Root/OnNotification>,
+        ]
         uniform token info:id = "RCP.BehaviorsContainer"
+    }
+
+    def Preliminary_Behavior "OnAddedToScene"
+    {
+        rel actions = </Root/OnAddedToScene/Action>
+        uniform bool exclusive
+        rel triggers = </Root/OnAddedToScene/Trigger>
+
+        def Preliminary_Trigger "Trigger"
+        {
+            rel affectedObjects = </Root>
+            token info:id = "SceneTransition"
+        }
+
+        def Preliminary_Action "Action"
+        {
+            rel affectedObjects = </Root>
+            rel animationLibraryKey = </Root/camina_a_brazo>
+            rel animationLibraryKeyOverrideKey = </Root/OnAddedToScene/Trigger>
+            token info:id = "PlayTimeline"
+            int loops = 0
+            int performCount = 1
+            token type = "serial"
+        }
     }
 
     def Preliminary_Behavior "OnNotification"
@@ -248,14 +306,13 @@ def Xform "Root"
         def Preliminary_Trigger "Trigger"
         {
             rel affectedObjects = </Root>
-            string identifier = "caminando_a_brazo"
             token info:id = "Notification"
         }
 
         def Preliminary_Action "Action"
         {
-            rel affectedObjects = </Root>
-            rel animationLibraryKey = </Root/camina_a_brazo>
+            rel affectedObjects = </Root/cappi_animado>
+            rel animationLibraryKey = </Root/cappi_animado/mapa>
             rel animationLibraryKeyOverrideKey = </Root/OnNotification/Trigger>
             token info:id = "PlayTimeline"
             int loops = 0

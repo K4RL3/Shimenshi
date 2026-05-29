@@ -62,8 +62,8 @@ struct SeguimientoImagenes: View {
     }
 }
 
-#Preview {
+/*#Preview {
     SeguimientoImagenes()
         .environment(ControladorAplicacion())
-}
+}*/
 

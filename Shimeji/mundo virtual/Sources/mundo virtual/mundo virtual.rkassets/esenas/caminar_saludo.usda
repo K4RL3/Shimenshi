@@ -23,6 +23,18 @@ def Xform "Root"
         float3 xformOp:scale = (1, 1, 1)
         float3 xformOp:translate = (2, 0, 9.313226e-8)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Carpincho_parado"
+        {
+            over "AnimationLibrary"
+            {
+                over "Carpincho_hablar"
+                {
+                    uniform bool looping = 1
+                    uniform string name = "Carpincho_hablar"
+                }
+            }
+        }
     }
 
     def RealityKitTimeline "caminando_infinito"
@@ -78,7 +90,7 @@ def Xform "Root"
 
     def RealityKitTimeline "animacion_caminar_a_centro_saludo"
     {
-        reorder nameChildren = ["Track", "Track2"]
+        reorder nameChildren = ["Track", "Track2", "Track3"]
         def RealityKitTrack "Track"
         {
             reorder nameChildren = ["Transform_To", "Transform_By"]
@@ -154,6 +166,64 @@ def Xform "Root"
                 double startTime = 5
                 rel timeline = </Root/cappi_animado/caminando>
             }
+        }
+
+        def RealityKitTrack "Track3"
+        {
+            def RealityKitAction "Disable_Entity"
+            {
+                string actionKind = "disable"
+                uniform token info:id = "6F2E4498-CC67-49C4-8D89-8EE70278CAD1"
+                double startTime = 0
+                rel target = </Root/cappi_animado/Carpincho_mapa>
+            }
+
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "Carpincho_hablar"
+                int blendLayer = 500
+                double duration = 0.375
+                uniform token info:id = "6CAF2559-3AE0-45B5-B2D6-CF550B6FF395"
+                double loopCount = 0
+                bool separateAnimatedValue = 1
+                double startTime = 6.006241646758515
+                rel target = </Root/cappi_animado/Carpincho_parado>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitComponent "RCP_BehaviorsContainer"
+    {
+        rel behaviors = </Root/OnAddedToScene>
+        uniform token info:id = "RCP.BehaviorsContainer"
+    }
+
+    def Preliminary_Behavior "OnAddedToScene"
+    {
+        rel actions = </Root/OnAddedToScene/Action>
+        uniform bool exclusive
+        rel triggers = </Root/OnAddedToScene/Trigger>
+
+        def Preliminary_Trigger "Trigger"
+        {
+            rel affectedObjects = </Root>
+            token info:id = "SceneTransition"
+        }
+
+        def Preliminary_Action "Action"
+        {
+            rel affectedObjects = </Root>
+            rel animationLibraryKey = </Root/animacion_caminar_a_centro_saludo>
+            rel animationLibraryKeyOverrideKey = </Root/OnAddedToScene/Trigger>
+            token info:id = "PlayTimeline"
+            int loops = 0
+            int performCount = 1
+            token type = "serial"
         }
     }
 }

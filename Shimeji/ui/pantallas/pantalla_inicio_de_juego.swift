@@ -4,10 +4,15 @@
 //
 //  Created by Jose de la luz Orivate var
 import SwiftUI
+import CoreLocation
+import RealityKit
+import mundo_virtual
 
 struct PantallaTest: View {
+    // 1. Jalamos el controlador maestro para podérselo pasar al radar
+    @Environment(ControladorAplicacion.self) var controlador
+    
     var body: some View {
-        // 1. Envolvemos toda la pantalla en un NavigationStack para habilitar el viaje a otra pantalla
         NavigationStack {
             ZStack {
                 // Fondo Degradado
@@ -49,9 +54,8 @@ struct PantallaTest: View {
                 .padding(.vertical, 50)
                 
                 
-                // ⚠️ AQUÍ ESTÁ EL CAMBIO: Textos en la parte superior
+                // Títulos centrales perfectamente alineados
                 VStack(spacing: 30) {
-                    
                     VStack {
                         Text("Capi al Rescate")
                             .font(.system(.largeTitle))
@@ -69,20 +73,18 @@ struct PantallaTest: View {
                             .font(.system(size: 45))
                             .foregroundColor(Color.white)
                     }
-                    
-                    // El Spacer ahora está ABAJO, empujando todo el bloque hacia arriba
-                    Spacer() 
                 }
-                .padding(.top, 60) // Un margen superior para que no se pegue al borde del iPhone
                 
                 
                 // Botón Inferior de Navegación
                 VStack(spacing: 15) {
                     Spacer()
                     
-                    // 2. El NavigationLink que desliza la pantalla hacia el Radar
-                    NavigationLink(destination: Text("PantallaRadarView") // Reemplaza esto con tu PantallaRadarView()
-                        .navigationBarBackButtonHidden(true) // Oculta el botón de retroceso
+                    // 2. Aquí conectamos la vista pasándole el controlador y la Pista 1 (índice 0)
+                    NavigationLink(destination: PantallaNarrativaView(alFinalizarHistoria: {}
+                        // Inicia buscando la primera pista de tu lista
+                    )
+                    .navigationBarBackButtonHidden(true) // Oculta el botón de retroceso
                     ) {
                         Text("Empezar")
                             .font(.system(.title))
@@ -104,4 +106,5 @@ struct PantallaTest: View {
 
 #Preview {
     PantallaTest()
+        .environment(ControladorAplicacion()) // Necesario para que el Preview no crashee
 }
